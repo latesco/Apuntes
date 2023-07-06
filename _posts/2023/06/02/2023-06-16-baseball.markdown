@@ -1,0 +1,758 @@
+---
+layout: post
+title:  "Python: Conversion de Archivos CSV a SQL"
+date:   2023-06-02 11:15:51 -0400
+
+---
+
+
+<i>Pandas</i>, el modulo de <i>Python</i>, ofrece un método expedito para guardar, como tabla, el contenido de un archivo separado por comas (<i>csv</i>) en una base de datos. 
+
+En el siguiente ejemplo, se utilizan archivos <i>csv</i>. pertenecientes a la base de datos de beisbol de  <i>Sean Lahman</i>, que se pueden obtener, sin costo,  a través del sitio <i>web</i> del autor, sitios como <i>Kaggle</i>.
+
+Este ejemplo funciona con una instalación de <i>MariaDB</i> (la versión <i>open source</i> de <i>MySQL</i>), y creando una base de datos (en mi caso le puse el nombre <i>beisbol</i>), utilizando el comando <b>"""CREATE DATABASE beisbol;"""</b> , desde el terminal <i>mysql</i>.
+
+Luego se importan los siguientes modulos a <i>Python</i>:
+
+
+```python
+import sqlalchemy
+from sqlalchemy import text
+import pandas as pd
+import numpy as np
+import os
+```
+
+### Modulos.
+
+Para este caso en particular; el propósito de cada uno de estos modulos es:
+
+- SQLAlchemy: facilitar conexión a la base de datos.
+- Pandas: carga, manipulación y conversión de los datos a tablas SQL.
+- NumPy: conversión a NAs.
+- OS: acceso a direcciones en el disco duro.
+
+La instalación de estos paquetes o modulos, se puede obtener mediante <i>pip</i> o <i>conda</i>, según la preferencia del usuario, con la excepción de <i>os</i>, que viene integrado en la instalación básica de <i>Python</i>.
+
+
+
+```python
+base = "mysql+pymysql://usuario:pswd@127.0.0.1:3306/beisbol"
+
+# Donde:
+# usuario: usuario o cliente MariDB
+# pswd: password o clave de ese usuario
+
+engine = sqlalchemy.create_engine(base)
+```
+
+Como vemos, para la conexión se require una cadena de texto contentiva del nombre de usuario y su clave de acceso. La documentación de <i>SQLAlchemy</i> presenta una explicación detallada al respecto.
+
+Al tener la conexión ya podemos convertir cualquier archivo <i>csv</i> a tabla <i>SQL</i>, del modo siguiente:
+
+Esta función carga el archivo, en forma de  <i>dataframe</i>
+
+```python
+df_f = pd.read_csv("/ruta/archivo/Fielding.csv")
+         
+```
+
+
+Ese <i>dataframe</i> posee un método llamado <i>to_sql</i>, que permite guardar el archivo como tabla en una base de datos; en este caso concreto es de tipo <i>MariaDB</i>, pero es indistinto para <i>PostgreSQL</i>, <i>SQLite</i> u otro.
+
+```python
+df_f.to_sql(con=engine, name = 'Fielding', if_exists = 'replace',
+            index = False)
+```
+
+Eso es todo; de ese modo queda registrada la tabla <i>Fielding</i> en la base de datos <i>beisbol</i>.
+
+### <i>Bucle</i> Para la Conversión de Varios Archivos.
+
+Si en lugar de un solo archivo <i>csv</i>,  se busca convertir varios; un <i>for-loop</i> puede ser una solución.
+
+En este caso, guardamos los nombres de los archivos en una lista:
+
+```python
+tablas = ['Master.csv', 'Batting.csv', 'Pitching.csv', 'HallOfFame.csv',
+         'AllstarFull.csv', 'AwardsPlayers.csv' 
+         ]
+```
+
+Creamos una función que posteriormente insertarémos en el <i>bucle</i> (<i>for-loop</i>), y añadirémos algunos ajustes, que convienen para una de las tablas.
+
+La siguiente lista contiene los nombres de las columnas que serán ajustadas:
+
+```python
+cols = ['birthYear', 'birthMonth', 'birthDay', 'deathYear', 'deathMonth', 'deathDay']
+```
+
+#### La Función.
+
+La siguiente función, cambiará el tipo de datos de algunas columnas en la tabla <i>Master.csv</i>.
+
+```python
+def para_sql(ruta):
+    df = pd.read_csv(ruta)
+    if os.path.split(ruta)[1] == 'Master.csv':
+        df['debut'] = pd.to_datetime(df.debut, format='%Y-%m-%d')
+        df['finalGame'] = pd.to_datetime(df.finalGame, format='%Y-%m-%d')
+        for col in cols:
+            df[col] = df[col].fillna(-1)
+            df[col] = df[col].astype(int)
+            df[col] = df[col].astype(str)
+            df[col] = df[col].replace('-1', np.nan)
+    return df
+```
+
+
+
+Ahora solo queda iterar sobre la lista <i>tablas</i>; con la función <i>para_sql</i>, recientemente creada, se cargan los archivos, y con el método <i>.to_sql</i>, se pasan a la base de datos.
+
+
+```python
+for csv in tablas:
+    dsql = para_sql(os.path.join('/home/ef/datasets/baseballdatabank-master/core', csv))
+    dsql.to_sql(con=engine, name = os.path.splitext(csv)[0],
+                if_exists = 'replace',
+            index = False)
+```
+
+Para cerciorarnos de que las tablas fueron realmente registradas en la base de datos:
+
+
+```python
+conn = engine.connect()
+```
+
+
+```python
+pd.read_sql('SHOW TABLES;',
+           con = conn)
+```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tables_in_beisbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AllstarFull</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AwardsPlayers</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Batting</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Fielding</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HallOfFame</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Master</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Pitching</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Vemos que tambień está presente la primera tabla creada: <i>Fielding</i>.
+
+#### <i>Primary Key</i>, <i>Foreign Key</i>
+
+Podría considerarse conveniente alguna modificación sobre las tablas; por ejemplo, establecer una <i>clave primaria</i> (<i>Primary Key</i>):  
+
+
+```python
+q = text('ALTER TABLE Master MODIFY playerID VARCHAR(10) PRIMARY KEY;')
+
+conn.execute(q)
+```
+
+
+
+
+    <sqlalchemy.engine.cursor.CursorResult at 0x7f7e21c93280>
+
+
+
+Y una <i>Foreign Key</i>, para las tablas contenidas en esta lista
+
+
+```python
+t0 = ['Batting', 'Fielding', 'Pitching']
+```
+
+
+```python
+for tab in t0:
+    conn.execute(text(f"""ALTER TABLE {tab}
+           MODIFY COLUMN playerID VARCHAR(10) NOT NULL,
+           ADD FOREIGN KEY (playerID) REFERENCES Master;
+        """))
+```
+
+Para consultar los nombres de columnas y tipo de datos contenidos en una tabla en particular:
+
+
+```python
+pd.read_sql("""SHOW COLUMNS FROM Master;""", con = conn)
+
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Null</th>
+      <th>Key</th>
+      <th>Default</th>
+      <th>Extra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>playerID</td>
+      <td>varchar(10)</td>
+      <td>NO</td>
+      <td>PRI</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>birthYear</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>birthMonth</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>birthDay</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>birthCountry</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>birthState</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>birthCity</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>deathYear</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>deathMonth</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>deathDay</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>deathCountry</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>deathState</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>deathCity</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>nameFirst</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>nameLast</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>nameGiven</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>weight</td>
+      <td>double</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>height</td>
+      <td>double</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>bats</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>throws</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>debut</td>
+      <td>datetime</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>finalGame</td>
+      <td>datetime</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>retroID</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>bbrefID</td>
+      <td>text</td>
+      <td>YES</td>
+      <td></td>
+      <td>None</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+Dado que el <i>Pandas</i> transforma el resultado de la <i>query</i> en un <i>dataframe</i> lo siguiente tambien funciona:
+
+
+```python
+q = """
+    SELECT * FROM Batting;
+"""
+
+pd.read_sql(q, con = conn).columns
+```
+
+
+
+
+    Index(['playerID', 'yearID', 'stint', 'teamID', 'lgID', 'G', 'AB', 'R', 'H',
+           '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'IBB', 'HBP', 'SH',
+           'SF', 'GIDP'],
+          dtype='object')
+
+
+
+La aplicación permite variados tipos de consultas; por ejemplo, si nos preguntamos, ¿Cuáles fueron los 10 bateadores con más carreras impulsadas en 2013?
+
+
+```python
+q = """
+    SELECT t.playerID AS id,
+    CONCAT(t.nameFirst, ' ', t.nameLast) AS Nombre,
+    SUM(q.RBI) AS carreras_impulsadas,
+    t.birthCountry AS PaisDeOrigen
+    FROM Master t
+    RIGHT JOIN Batting q
+    ON t.playerID = q.playerID
+    WHERE q.yearID = 2013
+    GROUP BY Nombre
+    ORDER BY SUM(q.RBI) DESC
+    LIMIT 10
+    ;
+"""
+
+dq = pd.read_sql(q, con = conn)
+```
+
+Se obtiene el <i>dataframe, dq</i>, que contiene los líderes en carreras impulsadas, en el año 2013, según los datos de esta base. 
+
+
+```python
+dq.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>carreras_impulsadas</th>
+      <th>PaisDeOrigen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>davisch02</td>
+      <td>Chris Davis</td>
+      <td>138.0</td>
+      <td>USA</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cabremi01</td>
+      <td>Miguel Cabrera</td>
+      <td>137.0</td>
+      <td>Venezuela</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>goldspa01</td>
+      <td>Paul Goldschmidt</td>
+      <td>125.0</td>
+      <td>USA</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bruceja01</td>
+      <td>Jay Bruce</td>
+      <td>109.0</td>
+      <td>USA</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>freemfr01</td>
+      <td>Freddie Freeman</td>
+      <td>109.0</td>
+      <td>USA</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+#### Algunas modificaciones adicionales.
+
+Solo para cambiar un poco el aspecto de la tabla, hacemos algunos ajustes en las columnas  del <i>dataframe dq</i>
+
+```python
+dq['Iso'] = dq.PaisDeOrigen.apply(lambda x: x[0:3].upper())
+dq['Iso'] = dq.Iso.str.replace('.', '')
+dq['Iso'] = dq.Iso.apply(lambda x: x[0:2])
+dq['Iso'] = dq.Iso.str.replace('R', 'O')
+```
+
+Lo hecho en la celda anterior, tiene el propósito de crear un <i>código ISO</i> de dos caracteres, a partir de los nombres de los países.
+
+
+```python
+from unicodedata import lookup
+```
+
+
+```python
+dq['carreras_impulsadas'] = dq.carreras_impulsadas.astype(int)
+dq.drop('PaisDeOrigen', axis = 1, inplace=True)
+```
+
+Esta función permite presentar las banderas de los países de orígen de los jugadores.
+
+
+```python
+dq['Pais'] = (dq.Iso
+    .apply(lambda x: lookup(f"REGIONAL INDICATOR SYMBOL LETTER {x[0]}") +
+    lookup(f"REGIONAL INDICATOR SYMBOL LETTER {x[1]}"))
+    )
+```
+
+
+```python
+dq
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>Nombre</th>
+      <th>carreras_impulsadas</th>
+      <th>Iso</th>
+      <th>Pais</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>davisch02</td>
+      <td>Chris Davis</td>
+      <td>138</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cabremi01</td>
+      <td>Miguel Cabrera</td>
+      <td>137</td>
+      <td>VE</td>
+      <td>🇻🇪</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>goldspa01</td>
+      <td>Paul Goldschmidt</td>
+      <td>125</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bruceja01</td>
+      <td>Jay Bruce</td>
+      <td>109</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>freemfr01</td>
+      <td>Freddie Freeman</td>
+      <td>109</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>jonesad01</td>
+      <td>Adam Jones</td>
+      <td>108</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>canoro01</td>
+      <td>Robinson Cano</td>
+      <td>107</td>
+      <td>DO</td>
+      <td>🇩🇴</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>fieldpr01</td>
+      <td>Prince Fielder</td>
+      <td>106</td>
+      <td>US</td>
+      <td>🇺🇸</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>encared01</td>
+      <td>Edwin Encarnacion</td>
+      <td>104</td>
+      <td>DO</td>
+      <td>🇩🇴</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ortizda01</td>
+      <td>David Ortiz</td>
+      <td>103</td>
+      <td>DO</td>
+      <td>🇩🇴</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Existen librerias en <i>R</i> y <i>Python</i>, que permiten acceso a estos archivos en formato de <i>dataframe</i>, de modo que pueden ser analizados directamente con <i>dplyr</i> o <i>data.table</i>, si se esta en R; o bien, <i>Pandas</i> si se  usa <i>Python</i>.
+
