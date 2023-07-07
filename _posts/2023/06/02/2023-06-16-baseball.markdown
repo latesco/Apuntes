@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "Python: Conversion de Archivos CSV a SQL"
 date:   2023-06-02 11:15:51 -0400
 
