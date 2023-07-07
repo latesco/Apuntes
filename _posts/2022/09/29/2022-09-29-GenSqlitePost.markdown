@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  "Python, Generadores y SQLite"
 date:   2022-09-29 01:55:51 -0400
 
