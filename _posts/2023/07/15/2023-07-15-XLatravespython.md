@@ -17,7 +17,7 @@ A modo de ilustración de lo dicho arriba. Considerémos los siguientes datos, g
 
 <div>
  
-  <img src="assets/output_10_0.png" alt=""> 
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_10_0.png" alt=""> 
 </div>
 
 Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deben efectuarse algunos cálculos: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc).
@@ -96,7 +96,7 @@ El <i>gif</i> muestra la hoja de cálculo 'antes', con los datos originales, y l
 
 <div>
  
-  <img src="assets/xl_final.gif" alt=""> 
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/xl_final.gif?raw=true"/>  
 </div>
 
 Como vemos, puede ahorrarse bastante tiempo, si las operaciones a realizar pueden ser preparadas por adelantado; esto no siempre es posible, pero en muchos casos si lo es.
@@ -241,7 +241,7 @@ Al guardar los cambios y abrir el libro en Excel.
     
 <div>
  
-  <img src="assets/output_54_0.png" alt=""> 
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png" alt=""> 
 </div>
 
 
@@ -453,7 +453,7 @@ libro.save('Ejemplo02_Proc.xlsx')
        
 <div>
  
-  <img src="assets/output_90_0.png" alt=""> 
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_90_0.png" alt=""> 
 </div>
 
 
