@@ -1,13 +1,7 @@
----
-layout: post
-title:  "Excel a través de Python"
-date:   2023-07-15 07:35:15 -0400
+# <i>Excel a través de Python</i>
 
----
+##  <i>Python</i>, <i>Openpyxl</i>
 
-
-##  <i>Python</i>, <i>Openpyxl</i>, <i>Excel</i>
-, 
 <i>Openpyxl</i>, es una librería de <i>Python</i> para lectura y escritura de archivos en <i>Excel</i>— no es la única, pero si pionera —; tiene capacidades que ofrecen la posibilidad de convertir actividades repetitivas y tediosas en un proceso mucho más simple y rápido.
 
 Se trata de operaciones que pueden ejecutarse directamente sobre la hoja de cálculo, y que incluso podrían resultar triviales para quienes sean usuarios habituales de  Excel; pero que de ser necesario repetirlas muchas veces, sobre distintas hojas o libros de excel, pueden tornarse muy tediosas y con alta propensión a errores.
@@ -21,11 +15,10 @@ Las funciones disponibles de este paquete son muchas y variadas. Vale la pena co
 A modo de ilustración de lo dicho arriba. Considerémos los siguientes datos, guardados en un libro de excel llamado 'Ejemplo01.xlsx'.
 
 
-    
-![png](output_10_0.png)
-    
-
-
+<div>
+ 
+  <img src="assets/output_10_0.png" alt=""> 
+</div>
 
 Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deben efectuarse algunos cálculos: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc).
 
@@ -101,7 +94,10 @@ libro.libro.save('Ejemplo01_Procesado.xlsx')
 
 El <i>gif</i> muestra la hoja de cálculo 'antes', con los datos originales, y la hoja 'después' con los resultados de las operaciones hechas arriba.
 
-![Alt Text](XLfinal.gif)
+<div>
+ 
+  <img src="assets/xl_final.gif" alt=""> 
+</div>
 
 Como vemos, puede ahorrarse bastante tiempo, si las operaciones a realizar pueden ser preparadas por adelantado; esto no siempre es posible, pero en muchos casos si lo es.
 
@@ -243,9 +239,10 @@ Al guardar los cambios y abrir el libro en Excel.
 
 
     
-![png](output_54_0.png)
-    
-
+<div>
+ 
+  <img src="assets/output_54_0.png" alt=""> 
+</div>
 
 
 Con esto ya los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora si es necesario darĺe algun formato y añadir colores se puede proceder como sigue.
@@ -453,10 +450,11 @@ Guardámos los cambios
 libro.save('Ejemplo02_Proc.xlsx')
 ```
 
-    
-![png](output_90_0.png)
-    
-
+       
+<div>
+ 
+  <img src="assets/output_90_0.png" alt=""> 
+</div>
 
 
 ### Gráficos
