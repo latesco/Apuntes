@@ -1,4 +1,9 @@
-# <i>Excel a través de Python</i>
+---
+layout: post
+title:  "Excel a través de Python"
+date:   2023-07-15 10:45:15 -0400
+
+---
 
 ##  <i>Python</i>, <i>Openpyxl</i>
 
@@ -8,17 +13,15 @@ Se trata de operaciones que pueden ejecutarse directamente sobre la hoja de cál
 
 Existe <i>VBA</i> <i>(macros)</i>, por supuesto, pero <i>Python</i> — a través de varios de sus paquetes, <i>openpyxl</i> entre ellos —  es visto como una buena alternativa (y quiza, posible sustituto); sobre todo para  quienes realicen en Excel tareas que involucren <i>data cleaning</i> (trad. literal limpieza de datos) y reportes.
 
-Las funciones disponibles de este paquete son muchas y variadas. Vale la pena consultar la documentación que es bastante explicita sobre su instalación y uso: https://openpyxl.readthedocs.io/en/stable/tutorial.html
+Las funciones disponibles de este paquete son muchas y variadas. Vale la pena consultar la [documentación](https://openpyxl.readthedocs.io/en/stable/tutorial.html) que es bastante explicita sobre su instalación y uso. 
 
 ### Ejemplo
 
 A modo de ilustración de lo dicho arriba. Considerémos los siguientes datos, guardados en un libro de excel llamado 'Ejemplo01.xlsx'.
 
-
-<div>
  
-  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_10_0.png" alt=""> 
-</div>
+  ![ScreenShot1](./apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_10_0.png)
+
 
 Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deben efectuarse algunos cálculos: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc).
 
@@ -95,9 +98,9 @@ libro.libro.save('Ejemplo01_Procesado.xlsx')
 El <i>gif</i> muestra la hoja de cálculo 'antes', con los datos originales, y la hoja 'después' con los resultados de las operaciones hechas arriba.
 
 <div>
- 
-  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/xl_final.gif?raw=true"/>  
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/xl_final.gif?raw=true" />
 </div>
+
 
 Como vemos, puede ahorrarse bastante tiempo, si las operaciones a realizar pueden ser preparadas por adelantado; esto no siempre es posible, pero en muchos casos si lo es.
 
@@ -238,11 +241,8 @@ libro.save('Ejemplo02_Proc.xlsx')
 Al guardar los cambios y abrir el libro en Excel.
 
 
-    
-<div>
  
-  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png" alt=""> 
-</div>
+  ![ScreenShot2](../apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png)
 
 
 Con esto ya los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora si es necesario darĺe algun formato y añadir colores se puede proceder como sigue.
@@ -451,10 +451,8 @@ libro.save('Ejemplo02_Proc.xlsx')
 ```
 
        
-<div>
  
-  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_90_0.png" alt=""> 
-</div>
+ ![ScreenShot3](/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_90_0.png)
 
 
 ### Gráficos
