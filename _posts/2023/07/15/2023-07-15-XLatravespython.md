@@ -19,9 +19,10 @@ Las funciones disponibles de este paquete son muchas y variadas. Vale la pena co
 
 A modo de ilustración de lo dicho arriba. Considerémos los siguientes datos, guardados en un libro de excel llamado 'Ejemplo01.xlsx'.
 
+<div>
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_10_0.png?raw=true"> 
+</div>
  
-  ![ScreenShot1](/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_10_0.png)
-
 
 Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deben efectuarse algunos cálculos: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc).
 
@@ -240,9 +241,13 @@ libro.save('Ejemplo02_Proc.xlsx')
 
 Al guardar los cambios y abrir el libro en Excel.
 
-
+<div>
  
-  ![ScreenShot2](https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png)
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png?raw=true" /> 
+  
+</div>
+
+
 
 
 Con esto ya los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora si es necesario darĺe algun formato y añadir colores se puede proceder como sigue.
