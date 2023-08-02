@@ -24,9 +24,7 @@ A modo de ilustración de lo dicho arriba. Considerémos los siguientes datos, g
 </div>
  
 
-Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deben efectuarse algunos cálculos: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc).
-
-Si las operaciones requeridas en el parráfo anterior, han sido previamente agrupadas en funciones o clases. el procedimiento se reduce simplemente a la ejecución de los siguientes comandos.
+Son datos ficticios de unas 'ventas mensuales'. Suponiendo que sobre un archivo como este deban efectuarse algunos cálculos y operaciones de formato: total columna 'B' y agregar otra columna en 'C' con los cambios porcentuales; una tabla para el conteo de meses con cambio porcentual negativo; y además añadir algunos gráficos y formato a la hoja (encabezado: titulo, colores, etc). Teniendo previamente preparadas las funciones convenientes. el procedimiento se reduce simplemente a la ejecución de los siguientes comandos.
 
 Importamos el libro de excel, escr:
 
@@ -105,7 +103,7 @@ El <i>gif</i> muestra la hoja de cálculo 'antes', con los datos originales, y l
 
 Como vemos, puede ahorrarse bastante tiempo, si las operaciones a realizar pueden ser preparadas por adelantado; esto no siempre es posible, pero en muchos casos si lo es.
 
-En las líneas siguientes se  describe la codificación prevía necesaria para crear la clase <i>formato_calculo</i>, usada en las celdas de arriba.
+En las líneas siguientes se  describe la codificación prevía necesaria para crear la clase <i>formato_calculo</i>, usada en el ejemplo de arriba.
 
 ### <i>Algunas funciones</i>:
 
@@ -172,7 +170,7 @@ hoja = libro.active
 hoja.title = 'Ventas'
 ```
 
-Isertamos dos filas, en la parte superior de la hoja, y añadimos un texto a la celda 'A1' que servirá de titulo para la hoja de cálculo.
+Insertamos dos filas, en la parte superior de la hoja, y añadimos un texto a la celda 'A1' que servirá de titulo para la hoja de cálculo.
 
 
 ```python
@@ -239,18 +237,18 @@ hoja['B24'] = '=COUNTIF($C$4:$C$15,"0")'
 libro.save('Ejemplo02_Proc.xlsx')
 ```
 
-Al guardar los cambios y abrir el libro en Excel.
+Al guardar los cambios y abrir el libro en Excel.<br>
 
 <div>
  
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/07/15/assets/output_54_0.png?raw=true" /> 
   
 </div>
+<br>
 
 
 
-
-Con esto ya los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora si es necesario darĺe algun formato y añadir colores se puede proceder como sigue.
+Con esto, los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora corresponden los pasos para el formato y añadir colores.
 
  ### Formatos
 
@@ -275,9 +273,9 @@ Si se decide deshechar los bordes de celdas.
 hoja.sheet_view.showGridLines = False
 ```
 
-Cada uno de los modulos importados arriba sirve para controlar alguna caraćterística de la hoja excel, que deseémos modificar: <i>Font</i> tiene que ver con el tamaño color y tipo de fuente; <i>Border</i>, para cambiar los bordes de las celdas; <i>PatternFill</i>, permite cambiar el color de la celda; y <i>NamedStyle</i>, permite agrupar varias características como un estilo, para luego aplicarlo en conjunto a una celda en especifíco.
+Cada uno de los modulos importados arriba sirve para controlar alguna caraćterística de la hoja excel que deseémos modificar: <i>Font</i> tiene que ver con el tamaño color y tipo de fuente; <i>Border</i>, para cambiar los bordes de las celdas; <i>PatternFill</i>, permite cambiar el color de la celda; y <i>NamedStyle</i>, permite agrupar varias características como un estilo, para luego aplicarlo en conjunto a una celda en especifíco.
 
-Para dar color a las celdas y designar el tamaño de fuente.
+La funcion <i>NamedStyle</i>, sirve para crear un objeto que agrupa todo un conjunto de características que definimos con las funciones de arriba en un 'estilo' dado. 
 
 
 ```python
@@ -332,7 +330,7 @@ hoja.row_dimensions[3].height = 22
 hoja.row_dimensions[17].height = 22
 ```
 
-A continuación agregamos formato al tituo de la hoja de cálculo.
+A continuación agregamos formato al titulo de la hoja de cálculo.
 
 
 ```python
@@ -352,7 +350,7 @@ enc2.fill = PatternFill(fgColor = "003366",
 
 ```
 
-El <i>bucle</i> le asigna las características arriba especificadas las celdas de interés, las correspondientes a las 2 primeras filas, cuyas celdas fueron combinadas más arriba.
+El <i>bucle</i> le asigna las características arriba especificadas a las celdas de interés, las correspondientes a las 2 primeras filas, cuyas celdas fueron combinadas más arriba.
 
 
 ```python
@@ -538,9 +536,7 @@ libro.save('Ejemplo02_Proc.xlsx')
 
 Como vemos es posible controlar todo tipo de características de la hoja de cálculo con este paquete.
 
-Sin embargo, un modo más ventajoso consiste en agrupar estos comandos en una función o una clase que agrupe varias funciones, de modo de poder aplicar estos comandos de forma reiterada y sin tener que escribirlos de nuevo. De nuevo, su valor consiste en abreviar tareas que se cumplen de modo repetitivo.
-
-Si se tiene un archivo con estos datos:
+Los pasos anteriores pueden agruparse en una <i>clase</i>, para no tener que repetirlos de nuevo. La celda inferior muestra el código completo que se usó en el ejemplo. 
 
 
 ```python
