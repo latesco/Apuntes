@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-08-07T16:54:23-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Excel a través de Python</title><link href="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html" rel="alternate" type="text/html" title="Excel a través de Python" /><published>2023-07-15T10:45:15-04:00</published><updated>2023-07-15T10:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/07/15/XLatravespython</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html">&lt;h2 id=&quot;python-openpyxl&quot;&gt;&lt;i&gt;Python&lt;/i&gt;, &lt;i&gt;Openpyxl&lt;/i&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-08-09T16:28:07-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Excel a través de Python</title><link href="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html" rel="alternate" type="text/html" title="Excel a través de Python" /><published>2023-07-15T10:45:15-04:00</published><updated>2023-07-15T10:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/07/15/XLatravespython</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html">&lt;h2 id=&quot;python-openpyxl&quot;&gt;&lt;i&gt;Python&lt;/i&gt;, &lt;i&gt;Openpyxl&lt;/i&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;i&gt;Openpyxl&lt;/i&gt;, es una librería de &lt;i&gt;Python&lt;/i&gt; para lectura y escritura de archivos en &lt;i&gt;Excel&lt;/i&gt;— no es la única, pero si pionera —; tiene capacidades que ofrecen la posibilidad de convertir actividades repetitivas y tediosas en un proceso mucho más simple y rápido.&lt;/p&gt;
 
@@ -181,7 +181,7 @@
 
 &lt;p&gt;Con esto, los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora corresponden los pasos para el formato y añadir colores.&lt;/p&gt;
 
-&lt;p&gt;### Formatos&lt;/p&gt;
+&lt;h3 id=&quot;formatos&quot;&gt;Formatos&lt;/h3&gt;
 
 &lt;p&gt;Para dar el formato a la hoja, necesitarémos algunos modulos extra de la librería &lt;i&gt;Openpyxl&lt;/i&gt;&lt;/p&gt;
 

@@ -250,7 +250,7 @@ Al guardar los cambios y abrir el libro en Excel.<br>
 
 Con esto, los resultados y las operaciones de cálculo de porcentaje y suma, que nos propusimos hacer, ya se encuentran en el libro. Ahora corresponden los pasos para el formato y añadir colores.
 
- ### Formatos
+### Formatos
 
 Para dar el formato a la hoja, necesitarémos algunos modulos extra de la librería <i>Openpyxl</i>
 
