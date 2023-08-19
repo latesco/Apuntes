@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SQL y generadores: extrayendo información de un archivo | Apuntes</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="SQL y generadores: extrayendo información de un archivo" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python, duckdb, generadores, Sqlite" />
+<meta property="og:description" content="Python, duckdb, generadores, Sqlite" />
+<link rel="canonical" href="http://localhost:4000/apuntes/2022/09/29/SQLgener.html" />
+<meta property="og:url" content="http://localhost:4000/apuntes/2022/09/29/SQLgener.html" />
+<meta property="og:site_name" content="Apuntes" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-29T01:55:51-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SQL y generadores: extrayendo información de un archivo" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-29T01:55:51-04:00","datePublished":"2022-09-29T01:55:51-04:00","description":"Python, duckdb, generadores, Sqlite","headline":"SQL y generadores: extrayendo información de un archivo","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/apuntes/2022/09/29/SQLgener.html"},"url":"http://localhost:4000/apuntes/2022/09/29/SQLgener.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/apuntes/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/apuntes/feed.xml" title="Apuntes" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/apuntes/">Apuntes</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/apuntes/about/">Acerca de</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SQL y generadores: extrayendo información de un archivo</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-29T01:55:51-04:00" itemprop="datePublished">Sep 29, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="python-duckdb-generadores-sqlite"><i>Python, duckdb, generadores, Sqlite</i></h2>
+
+<p>La herramiente de procesamiento y analisis de datos más utilizada en <i>Python</i> es <i>Pandas</i>, sin duda, ya que tiene muchos recursos. Sin embargo, en ocasiones el uso de <i>SQL</i> puede resultar conveniente también, o la combinación de ambas herramientas; de hecho <i>Pandas</i> tiene un método para conexiones a bases de datos <i>SQL</i>.</p>
+
+<p>El caso es que muchas o casi todas las operaciones que se realizan en paquetes como <i>Pandas</i>, son posibles en <i>SQL</i>, y hacer esto no requiere importar los datos a <i>RAM</i>; además, además en casos como <i>SQLite</i> o <i>duckdb</i>, ni siquiera es necesario tener un servidor <i>SQL</i>.</p>
+
+<h3 id="duckdb">Duckdb</h3>
+
+<p>Este paquete permite ejecutar <i>queries</i> directamente sobre un archivo cualquiera: .csv, .txt, .parquet y otros.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">duckdb</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">duckdb</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">'SELECT * FROM "./data/OnlineRetail.csv" LIMIT 5'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌───────────┬───────────┬──────────────────────┬──────────┬──────────────────┬───────────┬────────────┬────────────────┐
+│ InvoiceNo │ StockCode │     Description      │ Quantity │   InvoiceDate    │ UnitPrice │ CustomerID │    Country     │
+│  varchar  │  varchar  │       varchar        │  int64   │     varchar      │  varchar  │   int64    │    varchar     │
+├───────────┼───────────┼──────────────────────┼──────────┼──────────────────┼───────────┼────────────┼────────────────┤
+│ 536365    │ 85123A    │ WHITE HANGING HEAR…  │        6 │ 01/12/2010 08:26 │ 2,55      │      17850 │ United Kingdom │
+│ 536365    │ 71053     │ WHITE METAL LANTERN  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+│ 536365    │ 84406B    │ CREAM CUPID HEARTS…  │        8 │ 01/12/2010 08:26 │ 2,75      │      17850 │ United Kingdom │
+│ 536365    │ 84029G    │ KNITTED UNION FLAG…  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+│ 536365    │ 84029E    │ RED WOOLLY HOTTIE …  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+└───────────┴───────────┴──────────────────────┴──────────┴──────────────────┴───────────┴────────────┴────────────────┘
+</code></pre></div></div>
+
+<p>La columna <i>UnitPrice</i>, no fue reconocida como número debido a la separación de decimales por comas; esto acarrea un paso extra para hacer consultas usando esa columna: hacer conversión a número.</p>
+
+<p>Por ejemplo, si agrupamos por la columna <i>‘Country’</i>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">duckdb</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">"""SELECT Country, SUM(CAST(REPLACE(UnitPrice,  ',', '.') AS NUMERIC) * Quantity) AS ingresos,
+            SUM(Quantity) AS Cantidad
+            FROM "./data/OnlineRetail.csv"
+            GROUP BY Country
+            LIMIT 5
+            """</span>
+          <span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌────────────────┬───────────────┬──────────┐
+│    Country     │   ingresos    │ Cantidad │
+│    varchar     │ decimal(38,3) │  int128  │
+├────────────────┼───────────────┼──────────┤
+│ United Kingdom │   8187806.364 │  4263829 │
+│ France         │    197403.900 │   110480 │
+│ Australia      │    137077.270 │    83653 │
+│ Netherlands    │    284661.540 │   200128 │
+│ Germany        │    221698.210 │   117448 │
+└────────────────┴───────────────┴──────────┘
+</code></pre></div></div>
+
+<p>Podemos asignar el resultado de la <i>query</i> a un objeto de nombre ‘datos’.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datos</span> <span class="o">=</span> <span class="n">duckdb</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">"""
+                   SELECT Country,
+                   
+                   SUM(CAST(REPLACE(UnitPrice,  ',', '.') AS NUMERIC) * Quantity) AS ingresos,
+                   
+                   SUM(Quantity) AS Cantidad
+                   
+                   FROM "./data/OnlineRetail.csv"
+                   
+                   GROUP BY Country
+            
+            """</span>
+          <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Este objeto ‘datos’, ahora tiene varios atributos que pueden facilitar varias cosas; entre ellas convertir el resultado de la consulta o <i>query</i> en un <i>dataframe</i> de <i>Pandas</i></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datos</span><span class="p">.</span><span class="n">df</span><span class="p">().</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>ingresos</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>United Kingdom</td>
+      <td>8187806.364</td>
+      <td>4263829.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>France</td>
+      <td>197403.900</td>
+      <td>110480.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Australia</td>
+      <td>137077.270</td>
+      <td>83653.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Netherlands</td>
+      <td>284661.540</td>
+      <td>200128.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Germany</td>
+      <td>221698.210</td>
+      <td>117448.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>La columna <i>‘InvoiceDate’</i>, no aparece como tipo fecha sino <i>varchar</i>; para consultas que involucren esa columna sería necesaria una conversión.</p>
+
+<p>Por ejemplo, en este caso, la fecha es un <i>timestamp</i>, pero el formato no es el requerido por el algoritmo: YYYY-MM-DD HH:MM:SS. Se puede trabajar sobre esa columna transformandola a formato fecha.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">duckdb</span><span class="p">.</span><span class="n">sql</span><span class="p">(</span><span class="s">"""SELECT CAST(CONCAT(SUBSTRING(InvoiceDate, 7, 4), '-', 
+
+              SUBSTRING(InvoiceDate, 4, 2),
+              '-',
+              SUBSTRING(InvoiceDate, 1, 2),
+              ' ',
+              CONCAT(SUBSTRING(InvoiceDate, 12, 5), ':00')
+              
+              ) AS DATETIME) AS Fecha
+              
+            FROM "./data/OnlineRetail.csv"
+            
+            LIMIT 10
+            
+            """</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────┐
+│        Fecha        │
+│      timestamp      │
+├─────────────────────┤
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:28:00 │
+│ 2010-12-01 08:28:00 │
+│ 2010-12-01 08:34:00 │
+├─────────────────────┤
+│       10 rows       │
+└─────────────────────┘
+</code></pre></div></div>
+
+<h3 id="generadores">Generadores</h3>
+
+<p>Un generador, es una función que se comporta a la manera de un objeto sobre el cual es posible hacer iteraciones. En el caso particular de un archivo de datos, tiene una conexion con la ruta del archivo, entregando un solo resultado a la vez; con la ayuda de un <i>bucle</i> podrán hacerse calculos sobre filas o columnas.</p>
+
+<p>Con el código de en la celda inferior, creamos un generador. Es la misma sintaxis de una <i>list comprehension</i>, solo que encapsulada en parentesis, en lugar de corchetes.</p>
+
+<p>El <i>encoding</i>, es necesario debido a que el formato del archivo separa las columnas con ‘;’ en vez de ‘,’.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">fila</span> <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">'./data/OnlineRetail.csv'</span><span class="p">,</span>
+                              <span class="n">encoding</span> <span class="o">=</span> <span class="s">'ISO-8859-1'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Para extraer el encabezado de las columnas, hacemos:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">rstrip</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">';'</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">genr</span><span class="p">)</span>
+
+<span class="n">cols</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['InvoiceNo',
+ 'StockCode',
+ 'Description',
+ 'Quantity',
+ 'InvoiceDate',
+ 'UnitPrice',
+ 'CustomerID',
+ 'Country']
+</code></pre></div></div>
+
+<p>Los valores de la primera fila se extraen de este modo:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dct</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+
+<span class="nb">next</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'InvoiceNo': '536365',
+ 'StockCode': '85123A',
+ 'Description': 'WHITE HANGING HEART T-LIGHT HOLDER',
+ 'Quantity': '6',
+ 'InvoiceDate': '01/12/2010 08:26',
+ 'UnitPrice': '2,55',
+ 'CustomerID': '17850',
+ 'Country': 'United Kingdom'}
+</code></pre></div></div>
+
+<p>Los generadores producen objetos que  solo permiten lecturas de modo progresivo; es decir, una vez que lees una fila, ya solo te entregará la siguiente. De lo contrario debes repetir el proceso.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">fila</span> <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">'./data/OnlineRetail.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'ISO-8859-1'</span><span class="p">))</span>
+<span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">rstrip</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">';'</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">genr</span><span class="p">)</span>
+<span class="n">dct</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>El total de mercancias vendidas en el Reino Unido, según esta tabla.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">'Quantity'</span><span class="p">])</span>  <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dct</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s">'Country'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'United Kingdom'</span><span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4263829
+</code></pre></div></div>
+
+<p>Para obtener el total de ventas, por ejemplo:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">fila</span> <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s">'./data/OnlineRetail.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'ISO-8859-1'</span><span class="p">))</span>
+<span class="n">genr</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">rstrip</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">';'</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">genr</span><span class="p">)</span>
+<span class="n">dct</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">genr</span><span class="p">)</span>
+
+
+<span class="n">Ventas</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">'Quantity'</span><span class="p">])</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">'UnitPrice'</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">'.'</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dct</span><span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">Ventas</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9747747.93400317
+</code></pre></div></div>
+
+<p>El procedimiento es eficaz, aunque no necesarimente cómodo.</p>
+
+<h3 id="sqlite">SQLite</h3>
+
+<p>Con <i>sqlite</i> puede crearse una base de datos, sin servidor. Incluso puede crearse en la memoria del computador, dependiendo del tamaño del archivo esto puede resultar conveniente o no.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<p>SQLite, no requiere servidor, pero si una base de datos en disco; del modo siguiente puede crearse una, a partir de un archivo separado por comas.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruta</span> <span class="o">=</span> <span class="s">'./data/OnlineRetail.csv'</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">'./data/'</span><span class="p">,</span> <span class="s">'OnlineRetail.db'</span><span class="p">))</span>
+
+<span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>El siguiente <i>bucle</i> importa fracciones del archivo y las agrega a una base de datos. De modo que en ningún momento, con este procedimiento se importa todo el archivo a la memoria del computador, solo trozos progresivamente.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">fraccion</span> <span class="ow">in</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'ISO-8859-1'</span><span class="p">,</span>
+                        <span class="n">sep</span> <span class="o">=</span> <span class="s">';'</span><span class="p">,</span>
+                        <span class="n">decimal</span> <span class="o">=</span> <span class="s">','</span><span class="p">,</span>
+                        <span class="n">chunksize</span> <span class="o">=</span> <span class="mi">500</span><span class="p">):</span>
+    <span class="n">fraccion</span><span class="p">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s">'onlineretail'</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s">'append'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Este archivo tiene alrededor de $500.000$ filas, no es grande realmente. El caso es que es leido por trozos de 500 filas y guardado en la base de datos creada arriba.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"""SELECT SUM(UnitPrice * Quantity) FROM onlineretail;
+            """</span><span class="p">).</span><span class="n">fetchall</span><span class="p">()</span> <span class="c1"># EL mismo cálculo hecho arriba con generadores
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(9747747.93400317,)]
+</code></pre></div></div>
+
+<p>El número de registros o transacciones por países.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cur</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"""SELECT Country, COUNT(*) as N
+            from onlineretail
+            GROUP BY Country
+            ORDER BY N DESC;
+            """</span><span class="p">).</span><span class="n">fetchall</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[('United Kingdom', 495478),
+ ('Germany', 9495),
+ ('France', 8557),
+ ('EIRE', 8196),
+ ('Spain', 2533),
+ ('Netherlands', 2371),
+ ('Belgium', 2069),
+ ('Switzerland', 2002),
+ ('Portugal', 1519),
+ ('Australia', 1259),
+ ('Norway', 1086),
+ ('Italy', 803),
+ ('Channel Islands', 758),
+ ('Finland', 695),
+ ('Cyprus', 622),
+ ('Sweden', 462),
+ ('Unspecified', 446),
+ ('Austria', 401),
+ ('Denmark', 389),
+ ('Japan', 358),
+ ('Poland', 341),
+ ('Israel', 297),
+ ('USA', 291),
+ ('Hong Kong', 288),
+ ('Singapore', 229),
+ ('Iceland', 182),
+ ('Canada', 151),
+ ('Greece', 146),
+ ('Malta', 127),
+ ('United Arab Emirates', 68),
+ ('European Community', 61),
+ ('RSA', 58),
+ ('Lebanon', 45),
+ ('Lithuania', 35),
+ ('Brazil', 32),
+ ('Czech Republic', 30),
+ ('Bahrain', 19),
+ ('Saudi Arabia', 10)]
+</code></pre></div></div>
+
+<p>El resultado de una <i>query</i> en <i>dataframe</i>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s">"""SELECT Country, SUM(Quantity * UnitPrice) AS ingresos,
+            SUM(Quantity) AS Cantidad, AVG(UnitPrice) AS precio
+            FROM onlineretail
+            GROUP BY Country;"""</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>ingresos</th>
+      <th>Cantidad</th>
+      <th>precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Australia</td>
+      <td>137077.27</td>
+      <td>83653</td>
+      <td>3.220612</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Austria</td>
+      <td>10154.32</td>
+      <td>4827</td>
+      <td>4.243192</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Bahrain</td>
+      <td>548.40</td>
+      <td>260</td>
+      <td>4.556316</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Belgium</td>
+      <td>40910.96</td>
+      <td>23152</td>
+      <td>3.644335</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Brazil</td>
+      <td>1143.60</td>
+      <td>356</td>
+      <td>4.456250</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/apuntes/2022/09/29/SQLgener.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <!--<a href="http://localhost:4000/feed.xml"> -->
+           <svg class="svg-icon orange">
+              <!--<use xlink:href="/assets/minima-social-icons.svg#rss"></use>-->
+              </use><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+</svg>     
+	   <!--</svg> -->
+	   <span class="spann">Efraín Palacios</span> 
+          </a> 
+        </p>
+      </div>
+      <div class="footer-col">
+        <p> Está página web es un registro personal de notas sobre códigos y procedimientos en Python.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

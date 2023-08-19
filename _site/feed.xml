@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-08-09T16:28:07-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Excel a través de Python</title><link href="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html" rel="alternate" type="text/html" title="Excel a través de Python" /><published>2023-07-15T10:45:15-04:00</published><updated>2023-07-15T10:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/07/15/XLatravespython</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html">&lt;h2 id=&quot;python-openpyxl&quot;&gt;&lt;i&gt;Python&lt;/i&gt;, &lt;i&gt;Openpyxl&lt;/i&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-08-19T07:35:10-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Excel a través de Python</title><link href="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html" rel="alternate" type="text/html" title="Excel a través de Python" /><published>2023-07-15T10:45:15-04:00</published><updated>2023-07-15T10:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/07/15/XLatravespython</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/07/15/XLatravespython.html">&lt;h2 id=&quot;python-openpyxl&quot;&gt;&lt;i&gt;Python&lt;/i&gt;, &lt;i&gt;Openpyxl&lt;/i&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;i&gt;Openpyxl&lt;/i&gt;, es una librería de &lt;i&gt;Python&lt;/i&gt; para lectura y escritura de archivos en &lt;i&gt;Excel&lt;/i&gt;— no es la única, pero si pionera —; tiene capacidades que ofrecen la posibilidad de convertir actividades repetitivas y tediosas en un proceso mucho más simple y rápido.&lt;/p&gt;
 
@@ -1410,27 +1410,186 @@
 &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Existen librerias en &lt;i&gt;R&lt;/i&gt; y &lt;i&gt;Python&lt;/i&gt;, que permiten acceso a estos archivos en formato de &lt;i&gt;dataframe&lt;/i&gt;, de modo que pueden ser analizados directamente con &lt;i&gt;dplyr&lt;/i&gt; o &lt;i&gt;data.table&lt;/i&gt;, si se esta en R; o bien, &lt;i&gt;Pandas&lt;/i&gt; si se  usa &lt;i&gt;Python&lt;/i&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Pandas, el modulo de Python, ofrece un método expedito para guardar, como tabla, el contenido de un archivo separado por comas (csv) en una base de datos.</summary></entry><entry><title type="html">Python, Generadores y SQLite</title><link href="http://localhost:4000/apuntes/2022/09/29/GenSqlitePost.html" rel="alternate" type="text/html" title="Python, Generadores y SQLite" /><published>2022-09-29T01:55:51-04:00</published><updated>2022-09-29T01:55:51-04:00</updated><id>http://localhost:4000/apuntes/2022/09/29/GenSqlitePost</id><content type="html" xml:base="http://localhost:4000/apuntes/2022/09/29/GenSqlitePost.html">&lt;h2 id=&quot;dos-maneras-de-consultar-un-archivo-sin-cargarlo-a-ram&quot;&gt;Dos Maneras de Consultar un Archivo sin Cargarlo a RAM&lt;/h2&gt;
+&lt;p&gt;Existen librerias en &lt;i&gt;R&lt;/i&gt; y &lt;i&gt;Python&lt;/i&gt;, que permiten acceso a estos archivos en formato de &lt;i&gt;dataframe&lt;/i&gt;, de modo que pueden ser analizados directamente con &lt;i&gt;dplyr&lt;/i&gt; o &lt;i&gt;data.table&lt;/i&gt;, si se esta en R; o bien, &lt;i&gt;Pandas&lt;/i&gt; si se  usa &lt;i&gt;Python&lt;/i&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Pandas, el modulo de Python, ofrece un método expedito para guardar, como tabla, el contenido de un archivo separado por comas (csv) en una base de datos.</summary></entry><entry><title type="html">SQL y generadores: extrayendo información de un archivo</title><link href="http://localhost:4000/apuntes/2022/09/29/SQLgener.html" rel="alternate" type="text/html" title="SQL y generadores: extrayendo información de un archivo" /><published>2022-09-29T01:55:51-04:00</published><updated>2022-09-29T01:55:51-04:00</updated><id>http://localhost:4000/apuntes/2022/09/29/SQLgener</id><content type="html" xml:base="http://localhost:4000/apuntes/2022/09/29/SQLgener.html">&lt;h2 id=&quot;python-duckdb-generadores-sqlite&quot;&gt;&lt;i&gt;Python, duckdb, generadores, Sqlite&lt;/i&gt;&lt;/h2&gt;
 
-&lt;p&gt;Ocasionalmente puede resultar conveniente evitar posibles congestiones en la memoria del computador; los generadores y SQLite, son dos recursos que, entre otras cosas, permiten efectuar cálculos sobre un archivo sin cargarlo a la memoria RAM.&lt;/p&gt;
+&lt;p&gt;La herramiente de procesamiento y analisis de datos más utilizada en &lt;i&gt;Python&lt;/i&gt; es &lt;i&gt;Pandas&lt;/i&gt;, sin duda, ya que tiene muchos recursos. Sin embargo, en ocasiones el uso de &lt;i&gt;SQL&lt;/i&gt; puede resultar conveniente también, o la combinación de ambas herramientas; de hecho &lt;i&gt;Pandas&lt;/i&gt; tiene un método para conexiones a bases de datos &lt;i&gt;SQL&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;El caso es que muchas o casi todas las operaciones que se realizan en paquetes como &lt;i&gt;Pandas&lt;/i&gt;, son posibles en &lt;i&gt;SQL&lt;/i&gt;, y hacer esto no requiere importar los datos a &lt;i&gt;RAM&lt;/i&gt;; además, además en casos como &lt;i&gt;SQLite&lt;/i&gt; o &lt;i&gt;duckdb&lt;/i&gt;, ni siquiera es necesario tener un servidor &lt;i&gt;SQL&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;duckdb&quot;&gt;Duckdb&lt;/h3&gt;
+
+&lt;p&gt;Este paquete permite ejecutar &lt;i&gt;queries&lt;/i&gt; directamente sobre un archivo cualquiera: .csv, .txt, .parquet y otros.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;duckdb&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;duckdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SELECT * FROM &quot;./data/OnlineRetail.csv&quot; LIMIT 5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌───────────┬───────────┬──────────────────────┬──────────┬──────────────────┬───────────┬────────────┬────────────────┐
+│ InvoiceNo │ StockCode │     Description      │ Quantity │   InvoiceDate    │ UnitPrice │ CustomerID │    Country     │
+│  varchar  │  varchar  │       varchar        │  int64   │     varchar      │  varchar  │   int64    │    varchar     │
+├───────────┼───────────┼──────────────────────┼──────────┼──────────────────┼───────────┼────────────┼────────────────┤
+│ 536365    │ 85123A    │ WHITE HANGING HEAR…  │        6 │ 01/12/2010 08:26 │ 2,55      │      17850 │ United Kingdom │
+│ 536365    │ 71053     │ WHITE METAL LANTERN  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+│ 536365    │ 84406B    │ CREAM CUPID HEARTS…  │        8 │ 01/12/2010 08:26 │ 2,75      │      17850 │ United Kingdom │
+│ 536365    │ 84029G    │ KNITTED UNION FLAG…  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+│ 536365    │ 84029E    │ RED WOOLLY HOTTIE …  │        6 │ 01/12/2010 08:26 │ 3,39      │      17850 │ United Kingdom │
+└───────────┴───────────┴──────────────────────┴──────────┴──────────────────┴───────────┴────────────┴────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La columna &lt;i&gt;UnitPrice&lt;/i&gt;, no fue reconocida como número debido a la separación de decimales por comas; esto acarrea un paso extra para hacer consultas usando esa columna: hacer conversión a número.&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo, si agrupamos por la columna &lt;i&gt;‘Country’&lt;/i&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;duckdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT Country, SUM(CAST(REPLACE(UnitPrice,  ',', '.') AS NUMERIC) * Quantity) AS ingresos,
+            SUM(Quantity) AS Cantidad
+            FROM &quot;./data/OnlineRetail.csv&quot;
+            GROUP BY Country
+            LIMIT 5
+            &quot;&quot;&quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌────────────────┬───────────────┬──────────┐
+│    Country     │   ingresos    │ Cantidad │
+│    varchar     │ decimal(38,3) │  int128  │
+├────────────────┼───────────────┼──────────┤
+│ United Kingdom │   8187806.364 │  4263829 │
+│ France         │    197403.900 │   110480 │
+│ Australia      │    137077.270 │    83653 │
+│ Netherlands    │    284661.540 │   200128 │
+│ Germany        │    221698.210 │   117448 │
+└────────────────┴───────────────┴──────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Podemos asignar el resultado de la &lt;i&gt;query&lt;/i&gt; a un objeto de nombre ‘datos’.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duckdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+                   SELECT Country,
+                   
+                   SUM(CAST(REPLACE(UnitPrice,  ',', '.') AS NUMERIC) * Quantity) AS ingresos,
+                   
+                   SUM(Quantity) AS Cantidad
+                   
+                   FROM &quot;./data/OnlineRetail.csv&quot;
+                   
+                   GROUP BY Country
+            
+            &quot;&quot;&quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Este objeto ‘datos’, ahora tiene varios atributos que pueden facilitar varias cosas; entre ellas convertir el resultado de la consulta o &lt;i&gt;query&lt;/i&gt; en un &lt;i&gt;dataframe&lt;/i&gt; de &lt;i&gt;Pandas&lt;/i&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div&gt;
+&lt;style scoped=&quot;&quot;&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&quot;text-align: right;&quot;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;ingresos&lt;/th&gt;
+      &lt;th&gt;Cantidad&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;United Kingdom&lt;/td&gt;
+      &lt;td&gt;8187806.364&lt;/td&gt;
+      &lt;td&gt;4263829.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;France&lt;/td&gt;
+      &lt;td&gt;197403.900&lt;/td&gt;
+      &lt;td&gt;110480.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Australia&lt;/td&gt;
+      &lt;td&gt;137077.270&lt;/td&gt;
+      &lt;td&gt;83653.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;Netherlands&lt;/td&gt;
+      &lt;td&gt;284661.540&lt;/td&gt;
+      &lt;td&gt;200128.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;Germany&lt;/td&gt;
+      &lt;td&gt;221698.210&lt;/td&gt;
+      &lt;td&gt;117448.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La columna &lt;i&gt;‘InvoiceDate’&lt;/i&gt;, no aparece como tipo fecha sino &lt;i&gt;varchar&lt;/i&gt;; para consultas que involucren esa columna sería necesaria una conversión.&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo, en este caso, la fecha es un &lt;i&gt;timestamp&lt;/i&gt;, pero el formato no es el requerido por el algoritmo: YYYY-MM-DD HH:MM:SS. Se puede trabajar sobre esa columna transformandola a formato fecha.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;duckdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT CAST(CONCAT(SUBSTRING(InvoiceDate, 7, 4), '-', 
+
+              SUBSTRING(InvoiceDate, 4, 2),
+              '-',
+              SUBSTRING(InvoiceDate, 1, 2),
+              ' ',
+              CONCAT(SUBSTRING(InvoiceDate, 12, 5), ':00')
+              
+              ) AS DATETIME) AS Fecha
+              
+            FROM &quot;./data/OnlineRetail.csv&quot;
+            
+            LIMIT 10
+            
+            &quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌─────────────────────┐
+│        Fecha        │
+│      timestamp      │
+├─────────────────────┤
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:26:00 │
+│ 2010-12-01 08:28:00 │
+│ 2010-12-01 08:28:00 │
+│ 2010-12-01 08:34:00 │
+├─────────────────────┤
+│       10 rows       │
+└─────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;generadores&quot;&gt;Generadores&lt;/h3&gt;
 
 &lt;p&gt;Un generador, es una función que se comporta a la manera de un objeto sobre el cual es posible hacer iteraciones. En el caso particular de un archivo de datos, tiene una conexion con la ruta del archivo, entregando un solo resultado a la vez; con la ayuda de un &lt;i&gt;bucle&lt;/i&gt; podrán hacerse calculos sobre filas o columnas.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;p0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getsize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./data/OnlineRetail.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' Mb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;43.99 Mb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Este archivo separado por comas, no es muy grande realmente; pero sirve como ejemplo, puede obtenerse facilmente a través de  internet.&lt;/p&gt;
-
-&lt;p&gt;Con la línea de código, ejecutada en la celda inferior, creamos un generador. Es la misma sintaxis de una &lt;i&gt;list comprehension&lt;/i&gt;, solo que encapsulada en parentesis, en lugar de corchetes.&lt;/p&gt;
+&lt;p&gt;Con el código de en la celda inferior, creamos un generador. Es la misma sintaxis de una &lt;i&gt;list comprehension&lt;/i&gt;, solo que encapsulada en parentesis, en lugar de corchetes.&lt;/p&gt;
 
 &lt;p&gt;El &lt;i&gt;encoding&lt;/i&gt;, es necesario debido a que el formato del archivo separa las columnas con ‘;’ en vez de ‘,’.&lt;/p&gt;
 
@@ -1438,7 +1597,7 @@
                               &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Este archivo permite la separación por columnas, y guarda el encabezado del archivo &lt;i&gt;OnlineRetail.csv&lt;/i&gt; en el objeto &lt;i&gt;cols&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;Para extraer el encabezado de las columnas, hacemos:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rstrip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;';'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1456,7 +1615,7 @@
  'Country']
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Esto siguiente, es equivalente a consultar la primera fila del archivo, después del encabezado.&lt;/p&gt;
+&lt;p&gt;Los valores de la primera fila se extraen de este modo:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
@@ -1473,7 +1632,7 @@
  'Country': 'United Kingdom'}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;La indole de los generadores hace que solo puedan hacerse lecturas de modo progresivo; es decir, una vez que lees una fila, ya solo te entregará la siguiente. De lo contrario debes repetir el proceso. Como en el caso siguiente:&lt;/p&gt;
+&lt;p&gt;Los generadores producen objetos que  solo permiten lecturas de modo progresivo; es decir, una vez que lees una fila, ya solo te entregará la siguiente. De lo contrario debes repetir el proceso.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fila&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fila&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./data/OnlineRetail.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rstrip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;';'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1481,15 +1640,7 @@
 &lt;span class=&quot;n&quot;&gt;dct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getsizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' bytes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;112 bytes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Vemos que lo que el peso del generador en la memoria es apenas una infima fracción del archivo.&lt;/p&gt;
-
-&lt;p&gt;Calculémos, por ejemplo, el total de la cantidad de mercancias vendidas en el Reino Unido:&lt;/p&gt;
+&lt;p&gt;El total de mercancias vendidas en el Reino Unido, según esta tabla.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Quantity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dct&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Country'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'United Kingdom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
@@ -1498,6 +1649,8 @@
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;4263829
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para obtener el total de ventas, por ejemplo:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fila&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fila&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./data/OnlineRetail.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rstrip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;';'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1513,15 +1666,17 @@
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;9747747.93400317
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Claro está, dependiendo de los cálculos que se quieran hacer, este método puede no ser el más cómodo del mundo.&lt;/p&gt;
-
-&lt;p&gt;Sin embargo, &lt;i&gt;SQLite&lt;/i&gt; ofrece muchas ventajas en cuanto a facilidad para hacer muchas operaciones.&lt;/p&gt;
+&lt;p&gt;El procedimiento es eficaz, aunque no necesarimente cómodo.&lt;/p&gt;
 
 &lt;h3 id=&quot;sqlite&quot;&gt;SQLite&lt;/h3&gt;
+
+&lt;p&gt;Con &lt;i&gt;sqlite&lt;/i&gt; puede crearse una base de datos, sin servidor. Incluso puede crearse en la memoria del computador, dependiendo del tamaño del archivo esto puede resultar conveniente o no.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sqlite3&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SQLite, no requiere servidor, pero si una base de datos en disco; del modo siguiente puede crearse una, a partir de un archivo separado por comas.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ruta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'./data/OnlineRetail.csv'&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqlite3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./data/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'OnlineRetail.db'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -1529,39 +1684,16 @@
 &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Con &lt;i&gt;sqlite&lt;/i&gt; puede crearse una base de datos, sin servidor. Incluso puede crearse en la memoria del computador; claro que para este ejemplo, eso sería contradictorio con el propósito de no congestionar la memoria RAM.&lt;/p&gt;
+&lt;p&gt;El siguiente &lt;i&gt;bucle&lt;/i&gt; importa fracciones del archivo y las agrega a una base de datos. De modo que en ningún momento, con este procedimiento se importa todo el archivo a la memoria del computador, solo trozos progresivamente.&lt;/p&gt;
 
-&lt;p&gt;El siguiente &lt;i&gt;bucle&lt;/i&gt; importa fracciones del archivo y las agrega a una base de datos &lt;i&gt;sqlite&lt;/i&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parte&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fraccion&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ISO-8859-1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                         &lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;';'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                         &lt;span class=&quot;n&quot;&gt;decimal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
                         &lt;span class=&quot;n&quot;&gt;chunksize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;parte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'onlineretail'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;if_exists&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'append'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fraccion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'onlineretail'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;if_exists&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'append'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getsizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' Mb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.15 Mb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Lo que queda cargado es solo una fracción de 409 filas&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;parte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# las últimas 409 filas del archivo
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(409, 8)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;De las cuales se puede prescindir impunemente.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;del&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parte&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Ahora se pueden ejecutar todo tipo de consultas sobre el archivo convertido a base de datos.&lt;/p&gt;
+&lt;p&gt;Este archivo tiene alrededor de $500.000$ filas, no es grande realmente. El caso es que es leido por trozos de 500 filas y guardado en la base de datos creada arriba.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT SUM(UnitPrice * Quantity) FROM onlineretail;
             &quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fetchall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# EL mismo cálculo hecho arriba con generadores
@@ -1619,242 +1751,16 @@
  ('Saudi Arabia', 10)]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Pero &lt;i&gt;Pandas&lt;/i&gt; tiene un método &lt;i&gt;.read_sql&lt;/i&gt; que convierte el resultado de una &lt;i&gt;query&lt;/i&gt; en &lt;i&gt;dataframe&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;El resultado de una &lt;i&gt;query&lt;/i&gt; en &lt;i&gt;dataframe&lt;/i&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT Country, COUNT(*) as N
-            from onlineretail
-            GROUP BY Country
-            ORDER BY N DESC;
-            &quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div&gt;
-&lt;style scoped=&quot;&quot;&gt;
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-&lt;/style&gt;
-&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr style=&quot;text-align: right;&quot;&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Country&lt;/th&gt;
-      &lt;th&gt;N&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;United Kingdom&lt;/td&gt;
-      &lt;td&gt;495478&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;Germany&lt;/td&gt;
-      &lt;td&gt;9495&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;France&lt;/td&gt;
-      &lt;td&gt;8557&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;td&gt;EIRE&lt;/td&gt;
-      &lt;td&gt;8196&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;td&gt;Spain&lt;/td&gt;
-      &lt;td&gt;2533&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;5&lt;/th&gt;
-      &lt;td&gt;Netherlands&lt;/td&gt;
-      &lt;td&gt;2371&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;6&lt;/th&gt;
-      &lt;td&gt;Belgium&lt;/td&gt;
-      &lt;td&gt;2069&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;7&lt;/th&gt;
-      &lt;td&gt;Switzerland&lt;/td&gt;
-      &lt;td&gt;2002&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;8&lt;/th&gt;
-      &lt;td&gt;Portugal&lt;/td&gt;
-      &lt;td&gt;1519&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;9&lt;/th&gt;
-      &lt;td&gt;Australia&lt;/td&gt;
-      &lt;td&gt;1259&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;10&lt;/th&gt;
-      &lt;td&gt;Norway&lt;/td&gt;
-      &lt;td&gt;1086&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;11&lt;/th&gt;
-      &lt;td&gt;Italy&lt;/td&gt;
-      &lt;td&gt;803&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;12&lt;/th&gt;
-      &lt;td&gt;Channel Islands&lt;/td&gt;
-      &lt;td&gt;758&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;13&lt;/th&gt;
-      &lt;td&gt;Finland&lt;/td&gt;
-      &lt;td&gt;695&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;14&lt;/th&gt;
-      &lt;td&gt;Cyprus&lt;/td&gt;
-      &lt;td&gt;622&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;15&lt;/th&gt;
-      &lt;td&gt;Sweden&lt;/td&gt;
-      &lt;td&gt;462&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;16&lt;/th&gt;
-      &lt;td&gt;Unspecified&lt;/td&gt;
-      &lt;td&gt;446&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;17&lt;/th&gt;
-      &lt;td&gt;Austria&lt;/td&gt;
-      &lt;td&gt;401&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;18&lt;/th&gt;
-      &lt;td&gt;Denmark&lt;/td&gt;
-      &lt;td&gt;389&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;19&lt;/th&gt;
-      &lt;td&gt;Japan&lt;/td&gt;
-      &lt;td&gt;358&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;20&lt;/th&gt;
-      &lt;td&gt;Poland&lt;/td&gt;
-      &lt;td&gt;341&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;21&lt;/th&gt;
-      &lt;td&gt;Israel&lt;/td&gt;
-      &lt;td&gt;297&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;22&lt;/th&gt;
-      &lt;td&gt;USA&lt;/td&gt;
-      &lt;td&gt;291&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;23&lt;/th&gt;
-      &lt;td&gt;Hong Kong&lt;/td&gt;
-      &lt;td&gt;288&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;24&lt;/th&gt;
-      &lt;td&gt;Singapore&lt;/td&gt;
-      &lt;td&gt;229&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;25&lt;/th&gt;
-      &lt;td&gt;Iceland&lt;/td&gt;
-      &lt;td&gt;182&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;26&lt;/th&gt;
-      &lt;td&gt;Canada&lt;/td&gt;
-      &lt;td&gt;151&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;27&lt;/th&gt;
-      &lt;td&gt;Greece&lt;/td&gt;
-      &lt;td&gt;146&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;28&lt;/th&gt;
-      &lt;td&gt;Malta&lt;/td&gt;
-      &lt;td&gt;127&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;29&lt;/th&gt;
-      &lt;td&gt;United Arab Emirates&lt;/td&gt;
-      &lt;td&gt;68&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;30&lt;/th&gt;
-      &lt;td&gt;European Community&lt;/td&gt;
-      &lt;td&gt;61&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;31&lt;/th&gt;
-      &lt;td&gt;RSA&lt;/td&gt;
-      &lt;td&gt;58&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;32&lt;/th&gt;
-      &lt;td&gt;Lebanon&lt;/td&gt;
-      &lt;td&gt;45&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;33&lt;/th&gt;
-      &lt;td&gt;Lithuania&lt;/td&gt;
-      &lt;td&gt;35&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;34&lt;/th&gt;
-      &lt;td&gt;Brazil&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;35&lt;/th&gt;
-      &lt;td&gt;Czech Republic&lt;/td&gt;
-      &lt;td&gt;30&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;36&lt;/th&gt;
-      &lt;td&gt;Bahrain&lt;/td&gt;
-      &lt;td&gt;19&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;37&lt;/th&gt;
-      &lt;td&gt;Saudi Arabia&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Total de ingresos, cantidades y promedio de precios por países&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT Country, SUM(Quantity * UnitPrice) AS ingresos,
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;SELECT Country, SUM(Quantity * UnitPrice) AS ingresos,
             SUM(Quantity) AS Cantidad, AVG(UnitPrice) AS precio
             FROM onlineretail
             GROUP BY Country;&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;con&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div&gt;
@@ -1885,269 +1791,41 @@
     &lt;tr&gt;
       &lt;th&gt;0&lt;/th&gt;
       &lt;td&gt;Australia&lt;/td&gt;
-      &lt;td&gt;1.370773e+05&lt;/td&gt;
+      &lt;td&gt;137077.27&lt;/td&gt;
       &lt;td&gt;83653&lt;/td&gt;
       &lt;td&gt;3.220612&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;1&lt;/th&gt;
       &lt;td&gt;Austria&lt;/td&gt;
-      &lt;td&gt;1.015432e+04&lt;/td&gt;
+      &lt;td&gt;10154.32&lt;/td&gt;
       &lt;td&gt;4827&lt;/td&gt;
       &lt;td&gt;4.243192&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;2&lt;/th&gt;
       &lt;td&gt;Bahrain&lt;/td&gt;
-      &lt;td&gt;5.484000e+02&lt;/td&gt;
+      &lt;td&gt;548.40&lt;/td&gt;
       &lt;td&gt;260&lt;/td&gt;
       &lt;td&gt;4.556316&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;3&lt;/th&gt;
       &lt;td&gt;Belgium&lt;/td&gt;
-      &lt;td&gt;4.091096e+04&lt;/td&gt;
+      &lt;td&gt;40910.96&lt;/td&gt;
       &lt;td&gt;23152&lt;/td&gt;
       &lt;td&gt;3.644335&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;4&lt;/th&gt;
       &lt;td&gt;Brazil&lt;/td&gt;
-      &lt;td&gt;1.143600e+03&lt;/td&gt;
+      &lt;td&gt;1143.60&lt;/td&gt;
       &lt;td&gt;356&lt;/td&gt;
       &lt;td&gt;4.456250&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;5&lt;/th&gt;
-      &lt;td&gt;Canada&lt;/td&gt;
-      &lt;td&gt;3.666380e+03&lt;/td&gt;
-      &lt;td&gt;2763&lt;/td&gt;
-      &lt;td&gt;6.030331&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;6&lt;/th&gt;
-      &lt;td&gt;Channel Islands&lt;/td&gt;
-      &lt;td&gt;2.008629e+04&lt;/td&gt;
-      &lt;td&gt;9479&lt;/td&gt;
-      &lt;td&gt;4.932124&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;7&lt;/th&gt;
-      &lt;td&gt;Cyprus&lt;/td&gt;
-      &lt;td&gt;1.294629e+04&lt;/td&gt;
-      &lt;td&gt;6317&lt;/td&gt;
-      &lt;td&gt;6.302363&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;8&lt;/th&gt;
-      &lt;td&gt;Czech Republic&lt;/td&gt;
-      &lt;td&gt;7.077200e+02&lt;/td&gt;
-      &lt;td&gt;592&lt;/td&gt;
-      &lt;td&gt;2.938333&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;9&lt;/th&gt;
-      &lt;td&gt;Denmark&lt;/td&gt;
-      &lt;td&gt;1.876814e+04&lt;/td&gt;
-      &lt;td&gt;8188&lt;/td&gt;
-      &lt;td&gt;3.256941&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;10&lt;/th&gt;
-      &lt;td&gt;EIRE&lt;/td&gt;
-      &lt;td&gt;2.632768e+05&lt;/td&gt;
-      &lt;td&gt;142637&lt;/td&gt;
-      &lt;td&gt;5.911077&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;11&lt;/th&gt;
-      &lt;td&gt;European Community&lt;/td&gt;
-      &lt;td&gt;1.291750e+03&lt;/td&gt;
-      &lt;td&gt;497&lt;/td&gt;
-      &lt;td&gt;4.820492&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;12&lt;/th&gt;
-      &lt;td&gt;Finland&lt;/td&gt;
-      &lt;td&gt;2.232674e+04&lt;/td&gt;
-      &lt;td&gt;10666&lt;/td&gt;
-      &lt;td&gt;5.448705&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;13&lt;/th&gt;
-      &lt;td&gt;France&lt;/td&gt;
-      &lt;td&gt;1.974039e+05&lt;/td&gt;
-      &lt;td&gt;110480&lt;/td&gt;
-      &lt;td&gt;5.028864&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;14&lt;/th&gt;
-      &lt;td&gt;Germany&lt;/td&gt;
-      &lt;td&gt;2.216982e+05&lt;/td&gt;
-      &lt;td&gt;117448&lt;/td&gt;
-      &lt;td&gt;3.966930&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;15&lt;/th&gt;
-      &lt;td&gt;Greece&lt;/td&gt;
-      &lt;td&gt;4.710520e+03&lt;/td&gt;
-      &lt;td&gt;1556&lt;/td&gt;
-      &lt;td&gt;4.885548&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;16&lt;/th&gt;
-      &lt;td&gt;Hong Kong&lt;/td&gt;
-      &lt;td&gt;1.011704e+04&lt;/td&gt;
-      &lt;td&gt;4769&lt;/td&gt;
-      &lt;td&gt;42.505208&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;17&lt;/th&gt;
-      &lt;td&gt;Iceland&lt;/td&gt;
-      &lt;td&gt;4.310000e+03&lt;/td&gt;
-      &lt;td&gt;2458&lt;/td&gt;
-      &lt;td&gt;2.644011&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;18&lt;/th&gt;
-      &lt;td&gt;Israel&lt;/td&gt;
-      &lt;td&gt;7.907820e+03&lt;/td&gt;
-      &lt;td&gt;4353&lt;/td&gt;
-      &lt;td&gt;3.633131&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;19&lt;/th&gt;
-      &lt;td&gt;Italy&lt;/td&gt;
-      &lt;td&gt;1.689051e+04&lt;/td&gt;
-      &lt;td&gt;7999&lt;/td&gt;
-      &lt;td&gt;4.831121&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;20&lt;/th&gt;
-      &lt;td&gt;Japan&lt;/td&gt;
-      &lt;td&gt;3.534062e+04&lt;/td&gt;
-      &lt;td&gt;25218&lt;/td&gt;
-      &lt;td&gt;2.276145&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;21&lt;/th&gt;
-      &lt;td&gt;Lebanon&lt;/td&gt;
-      &lt;td&gt;1.693880e+03&lt;/td&gt;
-      &lt;td&gt;386&lt;/td&gt;
-      &lt;td&gt;5.387556&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;22&lt;/th&gt;
-      &lt;td&gt;Lithuania&lt;/td&gt;
-      &lt;td&gt;1.661060e+03&lt;/td&gt;
-      &lt;td&gt;652&lt;/td&gt;
-      &lt;td&gt;2.841143&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;23&lt;/th&gt;
-      &lt;td&gt;Malta&lt;/td&gt;
-      &lt;td&gt;2.505470e+03&lt;/td&gt;
-      &lt;td&gt;944&lt;/td&gt;
-      &lt;td&gt;5.244173&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;24&lt;/th&gt;
-      &lt;td&gt;Netherlands&lt;/td&gt;
-      &lt;td&gt;2.846615e+05&lt;/td&gt;
-      &lt;td&gt;200128&lt;/td&gt;
-      &lt;td&gt;2.738317&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;25&lt;/th&gt;
-      &lt;td&gt;Norway&lt;/td&gt;
-      &lt;td&gt;3.516346e+04&lt;/td&gt;
-      &lt;td&gt;19247&lt;/td&gt;
-      &lt;td&gt;6.012026&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;26&lt;/th&gt;
-      &lt;td&gt;Poland&lt;/td&gt;
-      &lt;td&gt;7.213140e+03&lt;/td&gt;
-      &lt;td&gt;3653&lt;/td&gt;
-      &lt;td&gt;4.170880&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;27&lt;/th&gt;
-      &lt;td&gt;Portugal&lt;/td&gt;
-      &lt;td&gt;2.936702e+04&lt;/td&gt;
-      &lt;td&gt;16180&lt;/td&gt;
-      &lt;td&gt;8.582976&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;28&lt;/th&gt;
-      &lt;td&gt;RSA&lt;/td&gt;
-      &lt;td&gt;1.002310e+03&lt;/td&gt;
-      &lt;td&gt;352&lt;/td&gt;
-      &lt;td&gt;4.277586&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;29&lt;/th&gt;
-      &lt;td&gt;Saudi Arabia&lt;/td&gt;
-      &lt;td&gt;1.311700e+02&lt;/td&gt;
-      &lt;td&gt;75&lt;/td&gt;
-      &lt;td&gt;2.411000&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;30&lt;/th&gt;
-      &lt;td&gt;Singapore&lt;/td&gt;
-      &lt;td&gt;9.120390e+03&lt;/td&gt;
-      &lt;td&gt;5234&lt;/td&gt;
-      &lt;td&gt;109.645808&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;31&lt;/th&gt;
-      &lt;td&gt;Spain&lt;/td&gt;
-      &lt;td&gt;5.477458e+04&lt;/td&gt;
-      &lt;td&gt;26824&lt;/td&gt;
-      &lt;td&gt;4.987544&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;32&lt;/th&gt;
-      &lt;td&gt;Sweden&lt;/td&gt;
-      &lt;td&gt;3.659591e+04&lt;/td&gt;
-      &lt;td&gt;35637&lt;/td&gt;
-      &lt;td&gt;3.910887&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;33&lt;/th&gt;
-      &lt;td&gt;Switzerland&lt;/td&gt;
-      &lt;td&gt;5.638535e+04&lt;/td&gt;
-      &lt;td&gt;30325&lt;/td&gt;
-      &lt;td&gt;3.403442&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;34&lt;/th&gt;
-      &lt;td&gt;USA&lt;/td&gt;
-      &lt;td&gt;1.730920e+03&lt;/td&gt;
-      &lt;td&gt;1034&lt;/td&gt;
-      &lt;td&gt;2.216426&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;35&lt;/th&gt;
-      &lt;td&gt;United Arab Emirates&lt;/td&gt;
-      &lt;td&gt;1.902280e+03&lt;/td&gt;
-      &lt;td&gt;982&lt;/td&gt;
-      &lt;td&gt;3.380735&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;36&lt;/th&gt;
-      &lt;td&gt;United Kingdom&lt;/td&gt;
-      &lt;td&gt;8.187806e+06&lt;/td&gt;
-      &lt;td&gt;4263829&lt;/td&gt;
-      &lt;td&gt;4.532422&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;37&lt;/th&gt;
-      &lt;td&gt;Unspecified&lt;/td&gt;
-      &lt;td&gt;4.749790e+03&lt;/td&gt;
-      &lt;td&gt;3300&lt;/td&gt;
-      &lt;td&gt;2.699574&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Dos Maneras de Consultar un Archivo sin Cargarlo a RAM</summary></entry></feed>
+&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Python, duckdb, generadores, Sqlite</summary></entry></feed>
