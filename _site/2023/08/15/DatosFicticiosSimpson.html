@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Generando Datos ficticios con Paradoja de Asociación | Apuntes</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Generando Datos ficticios con Paradoja de Asociación" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Paradoja de Simpson" />
+<meta property="og:description" content="Paradoja de Simpson" />
+<link rel="canonical" href="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html" />
+<meta property="og:url" content="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html" />
+<meta property="og:site_name" content="Apuntes" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-15T10:45:55-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Generando Datos ficticios con Paradoja de Asociación" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-15T10:45:55-04:00","datePublished":"2023-08-15T10:45:55-04:00","description":"Paradoja de Simpson","headline":"Generando Datos ficticios con Paradoja de Asociación","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html"},"url":"http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/apuntes/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/apuntes/feed.xml" title="Apuntes" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/apuntes/">Apuntes</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/apuntes/about/">Acerca de</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Generando Datos ficticios con Paradoja de Asociación</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-08-15T10:45:55-04:00" itemprop="datePublished">Aug 15, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="paradoja-de-simpson"><i>Paradoja de Simpson</i></h2>
+
+<p>En las líneas que siguen presentan el bosquejo de función, para generar datos con un comportamiento que similar al de variables en las que se observa la Paradoja de Simpson.</p>
+
+<p>Los datos son contínuos; la paradoja puede darse en datos cualitativos también, y el fenómeno ocurre cuando entre dos variables emerge una asociación, desaparece o se revierte al estas ser subdivididas en grupos.</p>
+
+<p>Los datos ficticios product de la siguiente función emulan el comportamiento observado cuando la asociación se revierte.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="n">go</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<h2 id="función"><i>Función</i></h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">generAsociacion</span><span class="p">(</span><span class="n">n_obs</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">pendiente</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">):</span>
+    
+    <span class="c1"># definiendo algunas constantes
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="n">n_obs</span>
+    
+    <span class="n">coeficientes</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">pendiente</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">medias</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> <span class="c1"># medias grupales
+</span>    
+    <span class="n">dispersX</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">disperE</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">nivel</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># distancia de nube de obs.
+</span>    
+    <span class="n">nombres</span> <span class="o">=</span> <span class="s">'Grupo'</span>
+    
+    <span class="n">Nro</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">medias</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+    
+    <span class="n">grupos</span> <span class="o">=</span> <span class="p">[</span><span class="n">nombres</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Nro</span><span class="p">]</span>
+    
+    <span class="n">contenedor</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">if</span> <span class="n">pendiente</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">Nro</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">Nro</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1"># semilla para nros pseudo-aleatorios
+</span>    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    
+    <span class="c1"># diccionario para crear dataframes
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Nro</span><span class="p">)):</span>
+        
+        <span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s">'NroGrupo'</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">Nro</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="p">),</span>
+               
+               <span class="s">'Grupos'</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">grupos</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">n</span><span class="p">),</span>
+           
+               <span class="s">'nivel'</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">nivel</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+           
+               <span class="s">'X'</span><span class="p">:</span> <span class="n">rng</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span> <span class="n">medias</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">dispersX</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                           <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">),</span>
+           
+               <span class="s">'Errs'</span><span class="p">:</span> <span class="n">rng</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">disperE</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">),</span>
+              <span class="p">}</span>
+    
+        <span class="n">dct</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dct</span><span class="p">[</span><span class="s">'nivel'</span><span class="p">]</span> <span class="o">+</span> <span class="n">coeficientes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dct</span><span class="p">[</span><span class="s">'X'</span><span class="p">]</span> <span class="o">+</span> <span class="n">dct</span><span class="p">[</span><span class="s">'Errs'</span><span class="p">]</span>
+
+        <span class="n">dfx</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+
+        <span class="n">contenedor</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">dfx</span><span class="p">)</span>
+        
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="n">contenedor</span><span class="p">)</span>
+    
+    <span class="c1"># estimación marginal
+</span>    
+    <span class="n">y_est</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'X'</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s">'y'</span><span class="p">])</span>
+    
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">y_est</span><span class="p">.</span><span class="n">slope</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s">'y_est'</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_est</span><span class="p">.</span><span class="n">intercept</span> <span class="o">+</span> <span class="n">Q</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s">'X'</span><span class="p">]</span>
+    
+    
+    <span class="c1"># estimaciones por grupo
+</span>    
+    <span class="n">dfg</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'Grupos'</span><span class="p">)</span>
+    
+    <span class="n">listadf</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">grupo</span> <span class="ow">in</span> <span class="n">dfg</span><span class="p">:</span>
+        
+        <span class="n">y_reg_g</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">grupo</span><span class="p">[</span><span class="s">'X'</span><span class="p">],</span> <span class="n">grupo</span><span class="p">[</span><span class="s">'y'</span><span class="p">])</span>
+        
+        <span class="n">grupo</span><span class="p">[</span><span class="s">'y_reg_g'</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_reg_g</span><span class="p">.</span><span class="n">intercept</span> <span class="o">+</span> <span class="n">y_reg_g</span><span class="p">.</span><span class="n">slope</span> <span class="o">*</span> <span class="n">grupo</span><span class="p">[</span><span class="s">'X'</span><span class="p">]</span>
+        
+        <span class="n">listadf</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">grupo</span><span class="p">)</span>
+        
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="n">listadf</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">dfn</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">generAsociacion</span><span class="p">(</span><span class="n">pendiente</span><span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NroGrupo</th>
+      <th>Grupos</th>
+      <th>nivel</th>
+      <th>X</th>
+      <th>Errs</th>
+      <th>y</th>
+      <th>y_est</th>
+      <th>y_reg_g</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>45</th>
+      <td>1.0</td>
+      <td>Grupo1</td>
+      <td>60.0</td>
+      <td>7.467050</td>
+      <td>0.134008</td>
+      <td>75.068108</td>
+      <td>63.550811</td>
+      <td>74.802415</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1.0</td>
+      <td>Grupo1</td>
+      <td>60.0</td>
+      <td>4.775196</td>
+      <td>-1.098441</td>
+      <td>68.451952</td>
+      <td>67.375519</td>
+      <td>69.590714</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>10.713497</td>
+      <td>-1.796158</td>
+      <td>59.630836</td>
+      <td>58.938111</td>
+      <td>61.748087</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>10.331006</td>
+      <td>1.901065</td>
+      <td>62.563077</td>
+      <td>59.481571</td>
+      <td>60.961250</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>14.728116</td>
+      <td>4.837080</td>
+      <td>54.293311</td>
+      <td>53.233958</td>
+      <td>49.086571</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>8.562891</td>
+      <td>5.018289</td>
+      <td>62.144072</td>
+      <td>61.993790</td>
+      <td>57.323985</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>2.355506</td>
+      <td>2.055529</td>
+      <td>46.766541</td>
+      <td>70.813526</td>
+      <td>44.554509</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>16.543172</td>
+      <td>-1.701529</td>
+      <td>51.384815</td>
+      <td>50.655043</td>
+      <td>52.346756</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>12.835404</td>
+      <td>4.634769</td>
+      <td>70.305577</td>
+      <td>55.923209</td>
+      <td>66.113152</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>10.104172</td>
+      <td>-0.556361</td>
+      <td>59.651983</td>
+      <td>59.803868</td>
+      <td>60.494618</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gr</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'Grupos'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="n">go</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="p">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="p">.</span><span class="n">Layout</span><span class="p">(</span>
+    <span class="n">paper_bgcolor</span><span class="o">=</span> <span class="s">'rgba(0,0,0,0)'</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span> <span class="s">'rgba(0,0,0,0)'</span><span class="p">)</span>
+               <span class="p">)</span>
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo1'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo1'</span><span class="p">)[</span><span class="s">'y'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'markers'</span><span class="p">,</span>
+                         <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'rgba(0, 0, 255, 0.7)'</span><span class="p">,</span>
+                              <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                              <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="s">'#000000'</span><span class="p">,</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+                        <span class="p">))</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo1'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo1'</span><span class="p">)[</span><span class="s">'y_reg_g'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'lines'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s">'rgba(0, 0, 255, 1)'</span><span class="p">))</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo2'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo2'</span><span class="p">)[</span><span class="s">'y'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'markers'</span><span class="p">,</span>
+                <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'rgba(0, 255, 0, 0.7)'</span><span class="p">,</span>
+                              <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                              <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="s">'#000000'</span><span class="p">,</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">))))</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo2'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo2'</span><span class="p">)[</span><span class="s">'y_reg_g'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'lines'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s">'rgba(0, 255, 0, 1)'</span><span class="p">))</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo3'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo3'</span><span class="p">)[</span><span class="s">'y'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'markers'</span><span class="p">,</span>
+                <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'rgba(255, 0, 0, 0.7)'</span><span class="p">,</span>
+                              <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                              <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="s">'#000000'</span><span class="p">,</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                              <span class="p">))</span>
+             <span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo3'</span><span class="p">)[</span><span class="s">'X'</span><span class="p">],</span>
+                         <span class="n">y</span> <span class="o">=</span> <span class="n">gr</span><span class="p">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">'Grupo3'</span><span class="p">)[</span><span class="s">'y_reg_g'</span><span class="p">],</span>
+                         <span class="n">mode</span><span class="o">=</span><span class="s">'lines'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s">'rgba(255, 0, 0, 1)'</span><span class="p">))</span>
+
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'X'</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'y_est'</span><span class="p">],</span>
+              
+              <span class="n">mode</span><span class="o">=</span><span class="s">'lines'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s">"black"</span><span class="p">))</span>
+
+
+<span class="n">fig</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">layout_showlegend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">showline</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span> <span class="s">'#000000'</span><span class="p">,</span>
+                <span class="n">ticks</span><span class="o">=</span><span class="s">'outside'</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s">'lightgray'</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">showline</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s">'#000000'</span><span class="p">,</span>
+        <span class="n">ticks</span><span class="o">=</span><span class="s">'outside'</span><span class="p">,</span> <span class="n">showgrid</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s">'lightgray'</span><span class="p">)</span>
+
+<span class="c1"># fig.show()
+</span><span class="n">fig</span><span class="p">.</span><span class="n">write_image</span><span class="p">(</span><span class="s">'chartScatter.png'</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s">'chartScatter.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div>
+  <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/15/assets/output_10_0.png?raw=true" /> 
+</div>
+
+  </div><a class="u-url" href="/apuntes/2023/08/15/DatosFicticiosSimpson.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <!--<a href="http://localhost:4000/feed.xml"> -->
+           <svg class="svg-icon orange">
+              <!--<use xlink:href="/assets/minima-social-icons.svg#rss"></use>-->
+              </use><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+</svg>     
+	   <!--</svg> -->
+	   <span class="spann">Efraín Palacios</span> 
+          </a> 
+        </p>
+      </div>
+      <div class="footer-col">
+        <p> Está página web es un registro personal de notas sobre códigos y procedimientos en Python.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
