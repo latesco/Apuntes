@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "Generando Datos ficticios con Paradoja de Asociación"
+title:  "Datos ficticios con Paradoja de Asociación"
 date:   2023-08-15 10:45:55 -0400
 
 ---
 
 ##  <i>Paradoja de Simpson</i>
 
-En las líneas que siguen presentan el bosquejo de función, para generar datos con un comportamiento que similar al de variables en las que se observa la Paradoja de Simpson.
+En las líneas que siguen se bosqueja una función para generar variables, cuya asociación presente un comportamiento contradictorio, similar al que se observa entre datos que muestran una reversion en su relación, <i>(Paradoja de Simpson)</i>.
 
-Los datos son contínuos; la paradoja puede darse en datos cualitativos también, y el fenómeno ocurre cuando entre dos variables emerge una asociación, desaparece o se revierte al estas ser subdivididas en grupos.
+En este caso, los datos que genera la función son contínuos. 
 
-Los datos ficticios product de la siguiente función emulan el comportamiento observado cuando la asociación se revierte.
+La paradoja de Simpson, es un fenómeno en el que, entre dos variables, emerge una asociación, que desaparece o se revierte al estas ser subdivididas en grupos
 
 
 ```python
@@ -154,15 +154,59 @@ df.sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>45</th>
+      <th>35</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>18.519156</td>
+      <td>-3.576909</td>
+      <td>53.461403</td>
+      <td>47.847475</td>
+      <td>55.895996</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>2.0</td>
+      <td>Grupo2</td>
+      <td>40.0</td>
+      <td>12.317913</td>
+      <td>-1.122405</td>
+      <td>63.513421</td>
+      <td>56.658483</td>
+      <td>65.048600</td>
+    </tr>
+    <tr>
+      <th>63</th>
       <td>1.0</td>
       <td>Grupo1</td>
       <td>60.0</td>
-      <td>7.467050</td>
-      <td>0.134008</td>
-      <td>75.068108</td>
-      <td>63.550811</td>
-      <td>74.802415</td>
+      <td>3.201027</td>
+      <td>-1.595958</td>
+      <td>64.806097</td>
+      <td>69.612170</td>
+      <td>66.542964</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>14.190508</td>
+      <td>-1.483739</td>
+      <td>46.897278</td>
+      <td>53.997815</td>
+      <td>48.120927</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>13.260128</td>
+      <td>-2.222704</td>
+      <td>44.297552</td>
+      <td>55.319742</td>
+      <td>46.449788</td>
     </tr>
     <tr>
       <th>79</th>
@@ -176,39 +220,6 @@ df.sample(10)
       <td>69.590714</td>
     </tr>
     <tr>
-      <th>61</th>
-      <td>2.0</td>
-      <td>Grupo2</td>
-      <td>40.0</td>
-      <td>10.713497</td>
-      <td>-1.796158</td>
-      <td>59.630836</td>
-      <td>58.938111</td>
-      <td>61.748087</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>2.0</td>
-      <td>Grupo2</td>
-      <td>40.0</td>
-      <td>10.331006</td>
-      <td>1.901065</td>
-      <td>62.563077</td>
-      <td>59.481571</td>
-      <td>60.961250</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>3.0</td>
-      <td>Grupo3</td>
-      <td>20.0</td>
-      <td>14.728116</td>
-      <td>4.837080</td>
-      <td>54.293311</td>
-      <td>53.233958</td>
-      <td>49.086571</td>
-    </tr>
-    <tr>
       <th>4</th>
       <td>2.0</td>
       <td>Grupo2</td>
@@ -220,48 +231,37 @@ df.sample(10)
       <td>57.323985</td>
     </tr>
     <tr>
-      <th>53</th>
+      <th>91</th>
       <td>2.0</td>
       <td>Grupo2</td>
       <td>40.0</td>
-      <td>2.355506</td>
-      <td>2.055529</td>
-      <td>46.766541</td>
-      <td>70.813526</td>
-      <td>44.554509</td>
+      <td>10.183418</td>
+      <td>-6.467369</td>
+      <td>53.899468</td>
+      <td>59.691271</td>
+      <td>60.657640</td>
     </tr>
     <tr>
-      <th>79</th>
+      <th>4</th>
       <td>3.0</td>
       <td>Grupo3</td>
       <td>20.0</td>
-      <td>16.543172</td>
-      <td>-1.701529</td>
-      <td>51.384815</td>
-      <td>50.655043</td>
-      <td>52.346756</td>
+      <td>13.540184</td>
+      <td>-1.365096</td>
+      <td>45.715272</td>
+      <td>54.921825</td>
+      <td>46.952822</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>2.0</td>
-      <td>Grupo2</td>
-      <td>40.0</td>
-      <td>12.835404</td>
-      <td>4.634769</td>
-      <td>70.305577</td>
-      <td>55.923209</td>
-      <td>66.113152</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>2.0</td>
-      <td>Grupo2</td>
-      <td>40.0</td>
-      <td>10.104172</td>
-      <td>-0.556361</td>
-      <td>59.651983</td>
-      <td>59.803868</td>
-      <td>60.494618</td>
+      <th>90</th>
+      <td>3.0</td>
+      <td>Grupo3</td>
+      <td>20.0</td>
+      <td>13.247176</td>
+      <td>-1.921617</td>
+      <td>44.572735</td>
+      <td>55.338144</td>
+      <td>46.426524</td>
     </tr>
   </tbody>
 </table>
@@ -283,7 +283,11 @@ import plotly.graph_objects as go
 ```python
 fig = go.Figure(layout=go.Layout(
     paper_bgcolor= 'rgba(0,0,0,0)',
-    plot_bgcolor= 'rgba(0,0,0,0)')
+    plot_bgcolor= 'rgba(0,0,0,0)',
+    width = 820,
+    height = 620
+)
+                
                )
 
 fig.add_trace(go.Scatter(x = gr.get_group('Grupo1')['X'],
@@ -331,13 +335,15 @@ fig.add_trace(go.Scatter(x = gr.get_group('Grupo3')['X'],
 
 fig.add_trace(go.Scatter(x = gr.get_group('Grupo3')['X'],
                          y = gr.get_group('Grupo3')['y_reg_g'],
-                         mode='lines', line_color='rgba(255, 0, 0, 1)'))
+                         mode='lines',
+                         line_color='rgba(255, 0, 0, 1)'))
 
 
 
 fig.add_trace(go.Scatter(x = df['X'], y = df['y_est'],
-              
-              mode='lines', line_color="black"))
+                         mode='lines',
+                         line = {'width':3},
+                         line_color="rgb(255, 204, 0, 1)"))
 
 
 fig.update(layout_showlegend=False)
@@ -356,6 +362,12 @@ Image('chartScatter.png')
 
 
 
+
+    
+
 <div>
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/15/assets/output_10_0.png?raw=true"> 
 </div>
+    
+
+

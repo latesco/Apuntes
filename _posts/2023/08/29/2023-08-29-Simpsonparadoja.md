@@ -7,30 +7,29 @@ date:   2023-08-29 08:45:15 -0400
 
 ## <i>Paradoja de Asociación</i>
 
-
 <div>
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true" />
 </div>
+<br>
+<br>
 
+El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en [Wikipedia](https://en.wikipedia.org/wiki/Simpson%27s_paradox) aparece definido, en términos generales, del modo siguiente:
 
-El comportamiento de los datos en el <i>gif</i>, muestra una paradoja de asociación, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en [Wikipedia](https://en.wikipedia.org/wiki/Simpson%27s_paradox) aparece definido, en términos generales, del modo siguiente:
+La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.
 
-La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.  
+Merece atención porque puede desvirtuar los resultados de algunos estudios, en los que se podría terminar asignando causas espurias a algunos efectos.
 
-Merece atención porque puede desvirtuar los resultados de algunos estudios, en los que se podría terminar asignando causas espurias a algunos efectos. 
+En el ámbito de la investigación experimental, donde la aleatorización sea realmente efectiva, no es de esperar la ocurrencia de este fenómeno. Sin embargo, en el área de las ciencias sociales, ocurre con frecuencia.
 
-En situaciones de investigación experimental, en las cuales la aleatorización es realmente efectiva, no es de esperar la ocurrencia de este fenómeno. En el área de las ciencias sociales, ocurre con frecuencia.
-
-Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor que causa la confusión <i>(confounding)</i>, causante de la distorsión para así neutralizar el efecto indeseado.
+Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor de confusión <i>(confounding)</i>, causante de la distorsión para así neutralizar el efecto indeseado.
 
 ### Ejemplos.
 
-En el artículo de Wikipedia, mencionado arriba, dan varios ejemplos. Uno de ellos referido a promedios de bateo.
+En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.
 
 
 ```python
 import pandas as pd
-import os
 ```
 
 
@@ -38,12 +37,13 @@ import os
 df = pd.read_html("https://en.wikipedia.org/wiki/Simpson%27s_paradox")
 ```
 
-Renombrando las columnas de la  tabla de Wikipedia.
+Lo siguiente es solo para darle formato a la tabla extraida.
+
 
 ```python
-df[3].columns ="""Nombre hitsVsTurnos-1995 promed-1995 hitsVsTurnos-1996
-                promed-1996 
-                Combinado-1 Combinado-2""".split()
+df[3].columns = """Nombre HT-1995 P-1995 HT-1996
+                P-1996 
+                Comb-1 Comb-2""".split()
 ```
 
 
@@ -54,68 +54,57 @@ def resaltar(x):
 
 
 ```python
-s = df[3].reset_index().style.applymap(resaltar)
+s = df[3].style.applymap(resaltar)
 ```
 
 
 ```python
-s1 = s.format({'promed-1995':'{:.3f}', 'promed-1996':'{:.3f}',
-         'Combinado-2':'{:.3f}'})
-```
-
-
-```python
-s1.set_properties(**{'text-align': 'center'})
+s1 = s.format({'P-1995':'{:.3f}', 'P-1996':'{:.3f}',
+         'Comb-2':'{:.3f}'})
+s1
 ```
 
 
 
 
 <style type="text/css">
-#T_a7cb9_row0_col0, #T_a7cb9_row0_col1, #T_a7cb9_row0_col2, #T_a7cb9_row0_col3, #T_a7cb9_row0_col4, #T_a7cb9_row0_col5, #T_a7cb9_row0_col6, #T_a7cb9_row1_col0, #T_a7cb9_row1_col1, #T_a7cb9_row1_col2, #T_a7cb9_row1_col4, #T_a7cb9_row1_col6, #T_a7cb9_row1_col7 {
-  text-align: center;
-}
-#T_a7cb9_row0_col7, #T_a7cb9_row1_col3, #T_a7cb9_row1_col5 {
+#T_96aa7_row0_col6, #T_96aa7_row1_col2, #T_96aa7_row1_col4 {
   font-weight: bold;
-  text-align: center;
 }
 </style>
-<table id="T_a7cb9">
+<table id="T_96aa7">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_a7cb9_level0_col0" class="col_heading level0 col0" >index</th>
-      <th id="T_a7cb9_level0_col1" class="col_heading level0 col1" >Nombre</th>
-      <th id="T_a7cb9_level0_col2" class="col_heading level0 col2" >hitsVsTurnos-1995</th>
-      <th id="T_a7cb9_level0_col3" class="col_heading level0 col3" >promed-1995</th>
-      <th id="T_a7cb9_level0_col4" class="col_heading level0 col4" >hitsVsTurnos-1996</th>
-      <th id="T_a7cb9_level0_col5" class="col_heading level0 col5" >promed-1996</th>
-      <th id="T_a7cb9_level0_col6" class="col_heading level0 col6" >Combinado-1</th>
-      <th id="T_a7cb9_level0_col7" class="col_heading level0 col7" >Combinado-2</th>
+      <th id="T_96aa7_level0_col0" class="col_heading level0 col0" >Nombre</th>
+      <th id="T_96aa7_level0_col1" class="col_heading level0 col1" >HT-1995</th>
+      <th id="T_96aa7_level0_col2" class="col_heading level0 col2" >P-1995</th>
+      <th id="T_96aa7_level0_col3" class="col_heading level0 col3" >HT-1996</th>
+      <th id="T_96aa7_level0_col4" class="col_heading level0 col4" >P-1996</th>
+      <th id="T_96aa7_level0_col5" class="col_heading level0 col5" >Comb-1</th>
+      <th id="T_96aa7_level0_col6" class="col_heading level0 col6" >Comb-2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a7cb9_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_a7cb9_row0_col0" class="data row0 col0" >0</td>
-      <td id="T_a7cb9_row0_col1" class="data row0 col1" >Derek Jeter</td>
-      <td id="T_a7cb9_row0_col2" class="data row0 col2" >12/48</td>
-      <td id="T_a7cb9_row0_col3" class="data row0 col3" >0.250</td>
-      <td id="T_a7cb9_row0_col4" class="data row0 col4" >183/582</td>
-      <td id="T_a7cb9_row0_col5" class="data row0 col5" >0.314</td>
-      <td id="T_a7cb9_row0_col6" class="data row0 col6" >195/630</td>
-      <td id="T_a7cb9_row0_col7" class="data row0 col7" >0.310</td>
+      <th id="T_96aa7_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_96aa7_row0_col0" class="data row0 col0" >Derek Jeter</td>
+      <td id="T_96aa7_row0_col1" class="data row0 col1" >12/48</td>
+      <td id="T_96aa7_row0_col2" class="data row0 col2" >0.250</td>
+      <td id="T_96aa7_row0_col3" class="data row0 col3" >183/582</td>
+      <td id="T_96aa7_row0_col4" class="data row0 col4" >0.314</td>
+      <td id="T_96aa7_row0_col5" class="data row0 col5" >195/630</td>
+      <td id="T_96aa7_row0_col6" class="data row0 col6" >0.310</td>
     </tr>
     <tr>
-      <th id="T_a7cb9_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_a7cb9_row1_col0" class="data row1 col0" >1</td>
-      <td id="T_a7cb9_row1_col1" class="data row1 col1" >David Justice</td>
-      <td id="T_a7cb9_row1_col2" class="data row1 col2" >104/411</td>
-      <td id="T_a7cb9_row1_col3" class="data row1 col3" >0.253</td>
-      <td id="T_a7cb9_row1_col4" class="data row1 col4" >45/140</td>
-      <td id="T_a7cb9_row1_col5" class="data row1 col5" >0.321</td>
-      <td id="T_a7cb9_row1_col6" class="data row1 col6" >149/551</td>
-      <td id="T_a7cb9_row1_col7" class="data row1 col7" >0.270</td>
+      <th id="T_96aa7_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_96aa7_row1_col0" class="data row1 col0" >David Justice</td>
+      <td id="T_96aa7_row1_col1" class="data row1 col1" >104/411</td>
+      <td id="T_96aa7_row1_col2" class="data row1 col2" >0.253</td>
+      <td id="T_96aa7_row1_col3" class="data row1 col3" >45/140</td>
+      <td id="T_96aa7_row1_col4" class="data row1 col4" >0.321</td>
+      <td id="T_96aa7_row1_col5" class="data row1 col5" >149/551</td>
+      <td id="T_96aa7_row1_col6" class="data row1 col6" >0.270</td>
     </tr>
   </tbody>
 </table>
@@ -123,7 +112,11 @@ s1.set_properties(**{'text-align': 'center'})
 
 
 
-La columna 'hitsVsTurnos' presenta el cociente entre el número de <i>hits</i> y los turnos al bate; las columnas portando el nombre 'promed', se refieren al promedio para el año en cuestión; mientras que las columnas con el prefijo 'Combinado', se refieren a los valores agregados para ambos años.
+HT: cociente entre hits y turnos al bate, en el año
+
+P: promedio de bateo
+
+Comb: agregado de ambos años 
 
 Se observa que, en los años 1995-1996,  <i>David Justice (ATL)</i> , tuvo mayor promedio de bateo que <i>Derek Jeter (NY)</i>; sin embargo, al combinar los promedios de las dos temporadas la relación se invierte.
 
@@ -131,22 +124,113 @@ La ocurrencia, en este contexto, se debe a la diferencia considerable de turnos 
 
 #### Regresión
 
-<i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.
 
-En el algunos ejemplos se le utiliza para examinar la relación entre el impuesto a bebidas alcohólicas y la mortalidad en accidentes de transito.
+El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra [aquí](https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html).
+
+Los datos son los mísmos que se visualizan en el <i>gif</i>
 
 
 ```python
-import statsmodels.api as sm
+import DatosFicticiosSimpson as ds
 import statsmodels.formula.api as smf
 from linearmodels import PanelOLS
 ```
+
+
+```python
+df = ds.generAsociacion()
+```
+
+
+```python
+mod_marginal = smf.ols('y ~ X', data = df).fit()
+```
+
+
+```python
+mod_marginal.params
+```
+
+
+
+
+    Intercept    6.670389
+    X            1.832375
+    dtype: float64
+
+
+
+La relación entre X e y es positiva, a la luz del resultado.
+
+
+```python
+mod_marginal.pvalues
+```
+
+
+
+
+    Intercept    7.510754e-09
+    X            7.490094e-49
+    dtype: float64
+
+
+
+Condicionando por los grupos.
+
+
+```python
+mod_condic = smf.ols('y ~ X + Grupos - 1',  data = df).fit()
+```
+
+
+```python
+mod_condic.params
+```
+
+
+
+
+    Grupos[Grupo1]    20.327267
+    Grupos[Grupo2]    40.889122
+    Grupos[Grupo3]    60.513787
+    X                 -1.560381
+    dtype: float64
+
+
+
+Vemos que la asociación se invierte.
+
+
+```python
+mod_condic.pvalues
+```
+
+
+
+
+    Grupos[Grupo1]    2.643887e-112
+    Grupos[Grupo2]    6.305009e-129
+    Grupos[Grupo3]    1.357479e-132
+    X                  1.000014e-46
+    dtype: float64
+
+
+
+Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.
+
+<i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.
 
 Con el modulo <i>statsmodels</i>, es posible obtener casi cualquier <i>dataset</i> de R.
 
 
 ```python
 fatal = sm.datasets.get_rdataset('Fatalities',"AER")
+```
+
+
+```python
+pd.set_option("display.max_columns", 9)
 ```
 
 
@@ -179,19 +263,7 @@ fatal.data.head(3)
       <th>year</th>
       <th>spirits</th>
       <th>unemp</th>
-      <th>income</th>
-      <th>emppop</th>
-      <th>beertax</th>
-      <th>baptist</th>
-      <th>mormon</th>
-      <th>drinkage</th>
       <th>...</th>
-      <th>nfatal2124</th>
-      <th>afatal</th>
-      <th>pop</th>
-      <th>pop1517</th>
-      <th>pop1820</th>
-      <th>pop2124</th>
       <th>milestot</th>
       <th>unempus</th>
       <th>emppopus</th>
@@ -205,23 +277,11 @@ fatal.data.head(3)
       <td>1982</td>
       <td>1.37</td>
       <td>14.4</td>
-      <td>10544.152</td>
-      <td>50.692</td>
-      <td>1.539</td>
-      <td>30.356</td>
-      <td>0.328</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>32</td>
-      <td>309.438</td>
-      <td>3.942e+06</td>
-      <td>208999.594</td>
-      <td>221553.438</td>
-      <td>290000.062</td>
       <td>28516.0</td>
       <td>9.7</td>
-      <td>57.8</td>
-      <td>-0.022</td>
+      <td>57.799999</td>
+      <td>-0.022125</td>
     </tr>
     <tr>
       <th>1</th>
@@ -229,23 +289,11 @@ fatal.data.head(3)
       <td>1983</td>
       <td>1.36</td>
       <td>13.7</td>
-      <td>10732.798</td>
-      <td>52.147</td>
-      <td>1.789</td>
-      <td>30.334</td>
-      <td>0.343</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>35</td>
-      <td>341.834</td>
-      <td>3.960e+06</td>
-      <td>202000.078</td>
-      <td>219125.469</td>
-      <td>290000.156</td>
       <td>31032.0</td>
       <td>9.6</td>
-      <td>57.9</td>
-      <td>0.047</td>
+      <td>57.900002</td>
+      <td>0.046558</td>
     </tr>
     <tr>
       <th>2</th>
@@ -253,23 +301,11 @@ fatal.data.head(3)
       <td>1984</td>
       <td>1.32</td>
       <td>11.1</td>
-      <td>11108.791</td>
-      <td>54.168</td>
-      <td>1.714</td>
-      <td>30.312</td>
-      <td>0.359</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>34</td>
-      <td>304.872</td>
-      <td>3.989e+06</td>
-      <td>196999.969</td>
-      <td>216724.094</td>
-      <td>288000.156</td>
       <td>32961.0</td>
       <td>7.5</td>
-      <td>59.5</td>
-      <td>0.063</td>
+      <td>59.500004</td>
+      <td>0.062798</td>
     </tr>
   </tbody>
 </table>
@@ -285,68 +321,127 @@ df = fatal.data
 
 
 ```python
-df['mortalidad'] = df.fatal / (df['pop'] * 1000)
+df['mortalidad'] = df['fatal'] /(df['pop'] * 10000)
 ```
 
-Si se observa la relación marginal entre el impuesto y la incidencia de accidentes fatales.
+Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.
 
 
 ```python
-res = smf.ols('mortalidad ~ beertax', data = df).fit()
+res_1982 = smf.ols('mortalidad ~ beertax',
+               data = df.loc[(df.year == 1982)]).fit()
+
+res_1985 = smf.ols('mortalidad ~ beertax',
+               data = df.loc[(df.year == 1985)]).fit()
+
+res_1988 = smf.ols('mortalidad ~ beertax',
+            data = df.loc[(df.year == 1988)]).fit()
 ```
 
 
 ```python
-res.params
+res_1982.params
 ```
 
 
 
 
-    Intercept    1.853e-07
-    beertax      3.646e-08
+    Intercept    2.010381e-08
+    beertax      1.484604e-09
     dtype: float64
 
 
 
-Obtenémos un resultado, según el cual, esa relación es positiva; es decir, a medida que se incrementa el impuesto, también se incrementan los accidentes fatales. Contrario a lo que se podría anticipar.
+
+```python
+res_1985.params
+```
+
+
+
+
+    Intercept    1.771162e-08
+    beertax      3.917555e-09
+    dtype: float64
+
+
+
+
+```python
+res_1988.params
+```
+
+
+
+
+    Intercept    1.859073e-08
+    beertax      4.387546e-09
+    dtype: float64
+
+
+
+Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beerttax</i>). Una variable incrementa con la otra; contrario a lo que se podría anticipar. 
 
 Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.
 
 
 ```python
-data = df.set_index(['state', 'year'])
+datos = df.set_index(['state', 'year'])
 ```
 
 
 ```python
-mod = PanelOLS(data.mortalidad, data['beertax'], entity_effects = True)
+mod = PanelOLS(datos.mortalidad, datos['beertax'], entity_effects = True)
 ```
 
 
 ```python
-res = mod.fit(cov_type='clustered', cluster_entity=True)
+res_grupos = mod.fit(cov_type='clustered', cluster_entity=True)
 ```
 
 
 ```python
-res.params
+res_grupos.params
 ```
 
 
 
 
-    beertax   -6.559e-08
+    beertax   -6.558737e-09
     Name: parameter, dtype: float64
 
 
 
-La relación se invierte; siendo coeficientes significativos al 95%.
+La relación se invierte, el coeficiente cambia de signo.
 
-En estos casos puntuales quiza resulte sencillo dilucidar cuál es la fuente de distorsión y cuál es la asociación correcta.
+Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.
 
-El asunto es que no siempre existe claridad en lo referente a cuando es es la asociación marginal o la condicional, la que debe considerarse espuria. Existen ejemplos, para uno y otro caso, al parecer suele ser más frecuente considerar como espuria a la marginal.
 
-De hecho, si se encontrará que el comportamiento de las variables en la muestra refleja fielmente el de la población de la que fueron extraidas, tendría que concluirse que ambas asociaciones, tanto la marginal como la condicional, son correctas.
+```python
+res_grupos.pvalues
+```
 
-En muchos casos es la información contextual disponible, acerca del asunto que se estudia, lo que ofrece una orientación para tomar una decisión al respecto. 
+
+
+
+    beertax    0.023885
+    Name: pvalue, dtype: float64
+
+
+
+En los años 85, 88 es siginificativo al 90%. 
+
+
+```python
+print(res_1982.pvalues[1], res_1985.pvalues[1], res_1988.pvalues[1], end = ' ')
+```
+
+    0.4346579944707294 0.014789150230907022 0.010503110467017232 
+
+Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.
+
+El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.
+
+Incluso, si en un algún caso pudiera determinarse con certeza que un comportamiento como este a nivel muestral, refleja fielmente al de la población; seguramente habría que concluir que que ambas asociaciones, la marginal y la condicional, son correctas.
+
+Al parecer, en muchos casos es la información contextual disponible acerca del asunto que se estudia, lo que ofrece alguna orientación para decidir al respecto.

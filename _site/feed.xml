@@ -1,102 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-08-30T17:07:35-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Paradoja de Simpson</title><link href="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html" rel="alternate" type="text/html" title="Paradoja de Simpson" /><published>2023-08-29T08:45:15-04:00</published><updated>2023-08-29T08:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html">&lt;h2 id=&quot;paradoja-de-asociación&quot;&gt;&lt;i&gt;Paradoja de Asociación&lt;/i&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-09-01T09:03:11-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Paradoja de Simpson</title><link href="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html" rel="alternate" type="text/html" title="Paradoja de Simpson" /><published>2023-08-29T08:45:15-04:00</published><updated>2023-08-29T08:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html">&lt;h2 id=&quot;paradoja-de-asociación&quot;&gt;&lt;i&gt;Paradoja de Asociación&lt;/i&gt;&lt;/h2&gt;
 
 &lt;div&gt;
   &lt;img src=&quot;https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true&quot; /&gt;
 &lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;El comportamiento de los datos en el &lt;i&gt;gif&lt;/i&gt;, muestra una paradoja de asociación, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como &lt;i&gt;Paradoja de Simpson&lt;/i&gt;, y en &lt;a href=&quot;https://en.wikipedia.org/wiki/Simpson%27s_paradox&quot;&gt;Wikipedia&lt;/a&gt; aparece definido, en términos generales, del modo siguiente:&lt;/p&gt;
+&lt;p&gt;El comportamiento de los datos en el &lt;i&gt;gif&lt;/i&gt;, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como &lt;i&gt;Paradoja de Simpson&lt;/i&gt;, y en &lt;a href=&quot;https://en.wikipedia.org/wiki/Simpson%27s_paradox&quot;&gt;Wikipedia&lt;/a&gt; aparece definido, en términos generales, del modo siguiente:&lt;/p&gt;
 
 &lt;p&gt;La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.&lt;/p&gt;
 
 &lt;p&gt;Merece atención porque puede desvirtuar los resultados de algunos estudios, en los que se podría terminar asignando causas espurias a algunos efectos.&lt;/p&gt;
 
-&lt;p&gt;En situaciones de investigación experimental, en las cuales la aleatorización es realmente efectiva, no es de esperar la ocurrencia de este fenómeno. En el área de las ciencias sociales, ocurre con frecuencia.&lt;/p&gt;
+&lt;p&gt;En el ámbito de la investigación experimental, donde la aleatorización sea realmente efectiva, no es de esperar la ocurrencia de este fenómeno. Sin embargo, en el área de las ciencias sociales, ocurre con frecuencia.&lt;/p&gt;
 
-&lt;p&gt;Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor que causa la confusión &lt;i&gt;(confounding)&lt;/i&gt;, causante de la distorsión para así neutralizar el efecto indeseado.&lt;/p&gt;
+&lt;p&gt;Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor de confusión &lt;i&gt;(confounding)&lt;/i&gt;, causante de la distorsión para así neutralizar el efecto indeseado.&lt;/p&gt;
 
 &lt;h3 id=&quot;ejemplos&quot;&gt;Ejemplos.&lt;/h3&gt;
 
-&lt;p&gt;En el artículo de Wikipedia, mencionado arriba, dan varios ejemplos. Uno de ellos referido a promedios de bateo.&lt;/p&gt;
+&lt;p&gt;En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://en.wikipedia.org/wiki/Simpson%27s_paradox&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Renombrando las columnas de la  tabla de Wikipedia.&lt;/p&gt;
+&lt;p&gt;Lo siguiente es solo para darle formato a la tabla extraida.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Nombre hitsVsTurnos-1995 promed-1995 hitsVsTurnos-1996
-                promed-1996 
-                Combinado-1 Combinado-2&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Nombre HT-1995 P-1995 HT-1996
+                P-1996 
+                Comb-1 Comb-2&quot;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;resaltar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'font-weight: bold'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.253&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.321&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resaltar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resaltar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'promed-1995'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'promed-1996'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-         &lt;span class=&quot;s&quot;&gt;'Combinado-2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text-align'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'center'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'P-1995'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'P-1996'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;s&quot;&gt;'Comb-2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{:.3f}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;style type=&quot;text/css&quot;&gt;
-#T_a7cb9_row0_col0, #T_a7cb9_row0_col1, #T_a7cb9_row0_col2, #T_a7cb9_row0_col3, #T_a7cb9_row0_col4, #T_a7cb9_row0_col5, #T_a7cb9_row0_col6, #T_a7cb9_row1_col0, #T_a7cb9_row1_col1, #T_a7cb9_row1_col2, #T_a7cb9_row1_col4, #T_a7cb9_row1_col6, #T_a7cb9_row1_col7 {
-  text-align: center;
-}
-#T_a7cb9_row0_col7, #T_a7cb9_row1_col3, #T_a7cb9_row1_col5 {
+#T_96aa7_row0_col6, #T_96aa7_row1_col2, #T_96aa7_row1_col4 {
   font-weight: bold;
-  text-align: center;
 }
 &lt;/style&gt;
 
-&lt;table id=&quot;T_a7cb9&quot;&gt;
+&lt;table id=&quot;T_96aa7&quot;&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th class=&quot;blank level0&quot;&gt;&amp;nbsp;&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col0&quot; class=&quot;col_heading level0 col0&quot;&gt;index&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col1&quot; class=&quot;col_heading level0 col1&quot;&gt;Nombre&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col2&quot; class=&quot;col_heading level0 col2&quot;&gt;hitsVsTurnos-1995&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col3&quot; class=&quot;col_heading level0 col3&quot;&gt;promed-1995&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col4&quot; class=&quot;col_heading level0 col4&quot;&gt;hitsVsTurnos-1996&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col5&quot; class=&quot;col_heading level0 col5&quot;&gt;promed-1996&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col6&quot; class=&quot;col_heading level0 col6&quot;&gt;Combinado-1&lt;/th&gt;
-      &lt;th id=&quot;T_a7cb9_level0_col7&quot; class=&quot;col_heading level0 col7&quot;&gt;Combinado-2&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col0&quot; class=&quot;col_heading level0 col0&quot;&gt;Nombre&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col1&quot; class=&quot;col_heading level0 col1&quot;&gt;HT-1995&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col2&quot; class=&quot;col_heading level0 col2&quot;&gt;P-1995&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col3&quot; class=&quot;col_heading level0 col3&quot;&gt;HT-1996&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col4&quot; class=&quot;col_heading level0 col4&quot;&gt;P-1996&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col5&quot; class=&quot;col_heading level0 col5&quot;&gt;Comb-1&lt;/th&gt;
+      &lt;th id=&quot;T_96aa7_level0_col6&quot; class=&quot;col_heading level0 col6&quot;&gt;Comb-2&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;th id=&quot;T_a7cb9_level0_row0&quot; class=&quot;row_heading level0 row0&quot;&gt;0&lt;/th&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col0&quot; class=&quot;data row0 col0&quot;&gt;0&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col1&quot; class=&quot;data row0 col1&quot;&gt;Derek Jeter&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col2&quot; class=&quot;data row0 col2&quot;&gt;12/48&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col3&quot; class=&quot;data row0 col3&quot;&gt;0.250&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col4&quot; class=&quot;data row0 col4&quot;&gt;183/582&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col5&quot; class=&quot;data row0 col5&quot;&gt;0.314&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col6&quot; class=&quot;data row0 col6&quot;&gt;195/630&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row0_col7&quot; class=&quot;data row0 col7&quot;&gt;0.310&lt;/td&gt;
+      &lt;th id=&quot;T_96aa7_level0_row0&quot; class=&quot;row_heading level0 row0&quot;&gt;0&lt;/th&gt;
+      &lt;td id=&quot;T_96aa7_row0_col0&quot; class=&quot;data row0 col0&quot;&gt;Derek Jeter&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col1&quot; class=&quot;data row0 col1&quot;&gt;12/48&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col2&quot; class=&quot;data row0 col2&quot;&gt;0.250&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col3&quot; class=&quot;data row0 col3&quot;&gt;183/582&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col4&quot; class=&quot;data row0 col4&quot;&gt;0.314&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col5&quot; class=&quot;data row0 col5&quot;&gt;195/630&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row0_col6&quot; class=&quot;data row0 col6&quot;&gt;0.310&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;th id=&quot;T_a7cb9_level0_row1&quot; class=&quot;row_heading level0 row1&quot;&gt;1&lt;/th&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col0&quot; class=&quot;data row1 col0&quot;&gt;1&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col1&quot; class=&quot;data row1 col1&quot;&gt;David Justice&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col2&quot; class=&quot;data row1 col2&quot;&gt;104/411&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col3&quot; class=&quot;data row1 col3&quot;&gt;0.253&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col4&quot; class=&quot;data row1 col4&quot;&gt;45/140&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col5&quot; class=&quot;data row1 col5&quot;&gt;0.321&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col6&quot; class=&quot;data row1 col6&quot;&gt;149/551&lt;/td&gt;
-      &lt;td id=&quot;T_a7cb9_row1_col7&quot; class=&quot;data row1 col7&quot;&gt;0.270&lt;/td&gt;
+      &lt;th id=&quot;T_96aa7_level0_row1&quot; class=&quot;row_heading level0 row1&quot;&gt;1&lt;/th&gt;
+      &lt;td id=&quot;T_96aa7_row1_col0&quot; class=&quot;data row1 col0&quot;&gt;David Justice&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col1&quot; class=&quot;data row1 col1&quot;&gt;104/411&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col2&quot; class=&quot;data row1 col2&quot;&gt;0.253&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col3&quot; class=&quot;data row1 col3&quot;&gt;45/140&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col4&quot; class=&quot;data row1 col4&quot;&gt;0.321&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col5&quot; class=&quot;data row1 col5&quot;&gt;149/551&lt;/td&gt;
+      &lt;td id=&quot;T_96aa7_row1_col6&quot; class=&quot;data row1 col6&quot;&gt;0.270&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;La columna ‘hitsVsTurnos’ presenta el cociente entre el número de &lt;i&gt;hits&lt;/i&gt; y los turnos al bate; las columnas portando el nombre ‘promed’, se refieren al promedio para el año en cuestión; mientras que las columnas con el prefijo ‘Combinado’, se refieren a los valores agregados para ambos años.&lt;/p&gt;
+&lt;p&gt;HT: cociente entre hits y turnos al bate, en el año&lt;/p&gt;
+
+&lt;p&gt;P: promedio de bateo&lt;/p&gt;
+
+&lt;p&gt;Comb: agregado de ambos años&lt;/p&gt;
 
 &lt;p&gt;Se observa que, en los años 1995-1996,  &lt;i&gt;David Justice (ATL)&lt;/i&gt; , tuvo mayor promedio de bateo que &lt;i&gt;Derek Jeter (NY)&lt;/i&gt;; sin embargo, al combinar los promedios de las dos temporadas la relación se invierte.&lt;/p&gt;
 
@@ -104,18 +100,76 @@
 
 &lt;h4 id=&quot;regresión&quot;&gt;Regresión&lt;/h4&gt;
 
-&lt;p&gt;&lt;i&gt;Fatalities&lt;/i&gt;, es un conjunto de datos contenido en el paquete &lt;i&gt;AER&lt;/i&gt; del &lt;i&gt;software R&lt;/i&gt;. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.&lt;/p&gt;
+&lt;p&gt;El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra &lt;a href=&quot;https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;En el algunos ejemplos se le utiliza para examinar la relación entre el impuesto a bebidas alcohólicas y la mortalidad en accidentes de transito.&lt;/p&gt;
+&lt;p&gt;Los datos son los mísmos que se visualizan en el &lt;i&gt;gif&lt;/i&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;statsmodels.api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;DatosFicticiosSimpson&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;statsmodels.formula.api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;linearmodels&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PanelOLS&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generAsociacion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_marginal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y ~ X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_marginal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    6.670389
+X            1.832375
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;La relación entre X e y es positiva, a la luz del resultado.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_marginal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    7.510754e-09
+X            7.490094e-49
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Condicionando por los grupos.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_condic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y ~ X + Grupos - 1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_condic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Grupos[Grupo1]    20.327267
+Grupos[Grupo2]    40.889122
+Grupos[Grupo3]    60.513787
+X                 -1.560381
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Vemos que la asociación se invierte.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_condic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Grupos[Grupo1]    2.643887e-112
+Grupos[Grupo2]    6.305009e-129
+Grupos[Grupo3]    1.357479e-132
+X                  1.000014e-46
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos &lt;i&gt;Fatalities&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;Fatalities&lt;/i&gt;, es un conjunto de datos contenido en el paquete &lt;i&gt;AER&lt;/i&gt; del &lt;i&gt;software R&lt;/i&gt;. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.&lt;/p&gt;
+
 &lt;p&gt;Con el modulo &lt;i&gt;statsmodels&lt;/i&gt;, es posible obtener casi cualquier &lt;i&gt;dataset&lt;/i&gt; de R.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datasets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_rdataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Fatalities'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;AER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_option&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display.max_columns&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -143,19 +197,7 @@
       &lt;th&gt;year&lt;/th&gt;
       &lt;th&gt;spirits&lt;/th&gt;
       &lt;th&gt;unemp&lt;/th&gt;
-      &lt;th&gt;income&lt;/th&gt;
-      &lt;th&gt;emppop&lt;/th&gt;
-      &lt;th&gt;beertax&lt;/th&gt;
-      &lt;th&gt;baptist&lt;/th&gt;
-      &lt;th&gt;mormon&lt;/th&gt;
-      &lt;th&gt;drinkage&lt;/th&gt;
       &lt;th&gt;...&lt;/th&gt;
-      &lt;th&gt;nfatal2124&lt;/th&gt;
-      &lt;th&gt;afatal&lt;/th&gt;
-      &lt;th&gt;pop&lt;/th&gt;
-      &lt;th&gt;pop1517&lt;/th&gt;
-      &lt;th&gt;pop1820&lt;/th&gt;
-      &lt;th&gt;pop2124&lt;/th&gt;
       &lt;th&gt;milestot&lt;/th&gt;
       &lt;th&gt;unempus&lt;/th&gt;
       &lt;th&gt;emppopus&lt;/th&gt;
@@ -169,23 +211,11 @@
       &lt;td&gt;1982&lt;/td&gt;
       &lt;td&gt;1.37&lt;/td&gt;
       &lt;td&gt;14.4&lt;/td&gt;
-      &lt;td&gt;10544.152&lt;/td&gt;
-      &lt;td&gt;50.692&lt;/td&gt;
-      &lt;td&gt;1.539&lt;/td&gt;
-      &lt;td&gt;30.356&lt;/td&gt;
-      &lt;td&gt;0.328&lt;/td&gt;
-      &lt;td&gt;19.0&lt;/td&gt;
       &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-      &lt;td&gt;309.438&lt;/td&gt;
-      &lt;td&gt;3.942e+06&lt;/td&gt;
-      &lt;td&gt;208999.594&lt;/td&gt;
-      &lt;td&gt;221553.438&lt;/td&gt;
-      &lt;td&gt;290000.062&lt;/td&gt;
       &lt;td&gt;28516.0&lt;/td&gt;
       &lt;td&gt;9.7&lt;/td&gt;
-      &lt;td&gt;57.8&lt;/td&gt;
-      &lt;td&gt;-0.022&lt;/td&gt;
+      &lt;td&gt;57.799999&lt;/td&gt;
+      &lt;td&gt;-0.022125&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;1&lt;/th&gt;
@@ -193,23 +223,11 @@
       &lt;td&gt;1983&lt;/td&gt;
       &lt;td&gt;1.36&lt;/td&gt;
       &lt;td&gt;13.7&lt;/td&gt;
-      &lt;td&gt;10732.798&lt;/td&gt;
-      &lt;td&gt;52.147&lt;/td&gt;
-      &lt;td&gt;1.789&lt;/td&gt;
-      &lt;td&gt;30.334&lt;/td&gt;
-      &lt;td&gt;0.343&lt;/td&gt;
-      &lt;td&gt;19.0&lt;/td&gt;
       &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;35&lt;/td&gt;
-      &lt;td&gt;341.834&lt;/td&gt;
-      &lt;td&gt;3.960e+06&lt;/td&gt;
-      &lt;td&gt;202000.078&lt;/td&gt;
-      &lt;td&gt;219125.469&lt;/td&gt;
-      &lt;td&gt;290000.156&lt;/td&gt;
       &lt;td&gt;31032.0&lt;/td&gt;
       &lt;td&gt;9.6&lt;/td&gt;
-      &lt;td&gt;57.9&lt;/td&gt;
-      &lt;td&gt;0.047&lt;/td&gt;
+      &lt;td&gt;57.900002&lt;/td&gt;
+      &lt;td&gt;0.046558&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;2&lt;/th&gt;
@@ -217,23 +235,11 @@
       &lt;td&gt;1984&lt;/td&gt;
       &lt;td&gt;1.32&lt;/td&gt;
       &lt;td&gt;11.1&lt;/td&gt;
-      &lt;td&gt;11108.791&lt;/td&gt;
-      &lt;td&gt;54.168&lt;/td&gt;
-      &lt;td&gt;1.714&lt;/td&gt;
-      &lt;td&gt;30.312&lt;/td&gt;
-      &lt;td&gt;0.359&lt;/td&gt;
-      &lt;td&gt;19.0&lt;/td&gt;
       &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;34&lt;/td&gt;
-      &lt;td&gt;304.872&lt;/td&gt;
-      &lt;td&gt;3.989e+06&lt;/td&gt;
-      &lt;td&gt;196999.969&lt;/td&gt;
-      &lt;td&gt;216724.094&lt;/td&gt;
-      &lt;td&gt;288000.156&lt;/td&gt;
       &lt;td&gt;32961.0&lt;/td&gt;
       &lt;td&gt;7.5&lt;/td&gt;
-      &lt;td&gt;59.5&lt;/td&gt;
-      &lt;td&gt;0.063&lt;/td&gt;
+      &lt;td&gt;59.500004&lt;/td&gt;
+      &lt;td&gt;0.062798&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -243,57 +249,97 @@
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'fatal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Si se observa la relación marginal entre el impuesto y la incidencia de accidentes fatales.&lt;/p&gt;
+&lt;p&gt;Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad ~ beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad ~ beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad ~ beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad ~ beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.853e-07
-beertax      3.646e-08
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    2.010381e-08
+beertax      1.484604e-09
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Obtenémos un resultado, según el cual, esa relación es positiva; es decir, a medida que se incrementa el impuesto, también se incrementan los accidentes fatales. Contrario a lo que se podría anticipar.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.771162e-08
+beertax      3.917555e-09
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.859073e-08
+beertax      4.387546e-09
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de &lt;i&gt;beerttax&lt;/i&gt;). Una variable incrementa con la otra; contrario a lo que se podría anticipar.&lt;/p&gt;
 
 &lt;p&gt;Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'state'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'year'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'state'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'year'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PanelOLS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mortalidad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity_effects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PanelOLS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mortalidad&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity_effects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cov_type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'clustered'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cluster_entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_grupos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cov_type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'clustered'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cluster_entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_grupos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beertax   -6.559e-08
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beertax   -6.558737e-09
 Name: parameter, dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;La relación se invierte; siendo coeficientes significativos al 95%.&lt;/p&gt;
+&lt;p&gt;La relación se invierte, el coeficiente cambia de signo.&lt;/p&gt;
 
-&lt;p&gt;En estos casos puntuales quiza resulte sencillo dilucidar cuál es la fuente de distorsión y cuál es la asociación correcta.&lt;/p&gt;
+&lt;p&gt;Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.&lt;/p&gt;
 
-&lt;p&gt;El asunto es que no siempre existe claridad en lo referente a cuando es es la asociación marginal o la condicional, la que debe considerarse espuria. Existen ejemplos, para uno y otro caso, al parecer suele ser más frecuente considerar como espuria a la marginal.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_grupos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;De hecho, si se encontrará que el comportamiento de las variables en la muestra refleja fielmente el de la población de la que fueron extraidas, tendría que concluirse que ambas asociaciones, tanto la marginal como la condicional, son correctas.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beertax    0.023885
+Name: pvalue, dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;En muchos casos es la información contextual disponible, acerca del asunto que se estudia, lo que ofrece una orientación para tomar una decisión al respecto.&lt;/p&gt;</content><author><name></name></author><summary type="html">Paradoja de Asociación</summary></entry><entry><title type="html">Generando Datos ficticios con Paradoja de Asociación</title><link href="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html" rel="alternate" type="text/html" title="Generando Datos ficticios con Paradoja de Asociación" /><published>2023-08-15T10:45:55-04:00</published><updated>2023-08-15T10:45:55-04:00</updated><id>http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html">&lt;h2 id=&quot;paradoja-de-simpson&quot;&gt;&lt;i&gt;Paradoja de Simpson&lt;/i&gt;&lt;/h2&gt;
+&lt;p&gt;En los años 85, 88 es siginificativo al 90%.&lt;/p&gt;
 
-&lt;p&gt;En las líneas que siguen presentan el bosquejo de función, para generar datos con un comportamiento que similar al de variables en las que se observa la Paradoja de Simpson.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Los datos son contínuos; la paradoja puede darse en datos cualitativos también, y el fenómeno ocurre cuando entre dos variables emerge una asociación, desaparece o se revierte al estas ser subdivididas en grupos.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.4346579944707294 0.014789150230907022 0.010503110467017232 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Los datos ficticios product de la siguiente función emulan el comportamiento observado cuando la asociación se revierte.&lt;/p&gt;
+&lt;p&gt;Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.&lt;/p&gt;
+
+&lt;p&gt;El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.&lt;/p&gt;
+
+&lt;p&gt;Incluso, si en un algún caso pudiera determinarse con certeza que un comportamiento como este a nivel muestral, refleja fielmente al de la población; seguramente habría que concluir que que ambas asociaciones, la marginal y la condicional, son correctas.&lt;/p&gt;
+
+&lt;p&gt;Al parecer, en muchos casos es la información contextual disponible acerca del asunto que se estudia, lo que ofrece alguna orientación para decidir al respecto.&lt;/p&gt;</content><author><name></name></author><summary type="html">Paradoja de Asociación</summary></entry><entry><title type="html">Datos ficticios con Paradoja de Asociación</title><link href="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html" rel="alternate" type="text/html" title="Datos ficticios con Paradoja de Asociación" /><published>2023-08-15T10:45:55-04:00</published><updated>2023-08-15T10:45:55-04:00</updated><id>http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/15/DatosFicticiosSimpson.html">&lt;h2 id=&quot;paradoja-de-simpson&quot;&gt;&lt;i&gt;Paradoja de Simpson&lt;/i&gt;&lt;/h2&gt;
+
+&lt;p&gt;En las líneas que siguen se bosqueja una función para generar variables, cuya asociación presente un comportamiento contradictorio, similar al que se observa entre datos que muestran una reversion en su relación, &lt;i&gt;(Paradoja de Simpson)&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;En este caso, los datos que genera la función son contínuos.&lt;/p&gt;
+
+&lt;p&gt;La paradoja de Simpson, es un fenómeno en el que, entre dos variables, emerge una asociación, que desaparece o se revierte al estas ser subdivididas en grupos&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
@@ -425,15 +471,59 @@ Name: parameter, dtype: float64
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;th&gt;45&lt;/th&gt;
+      &lt;th&gt;35&lt;/th&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+      &lt;td&gt;Grupo3&lt;/td&gt;
+      &lt;td&gt;20.0&lt;/td&gt;
+      &lt;td&gt;18.519156&lt;/td&gt;
+      &lt;td&gt;-3.576909&lt;/td&gt;
+      &lt;td&gt;53.461403&lt;/td&gt;
+      &lt;td&gt;47.847475&lt;/td&gt;
+      &lt;td&gt;55.895996&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;37&lt;/th&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+      &lt;td&gt;Grupo2&lt;/td&gt;
+      &lt;td&gt;40.0&lt;/td&gt;
+      &lt;td&gt;12.317913&lt;/td&gt;
+      &lt;td&gt;-1.122405&lt;/td&gt;
+      &lt;td&gt;63.513421&lt;/td&gt;
+      &lt;td&gt;56.658483&lt;/td&gt;
+      &lt;td&gt;65.048600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;63&lt;/th&gt;
       &lt;td&gt;1.0&lt;/td&gt;
       &lt;td&gt;Grupo1&lt;/td&gt;
       &lt;td&gt;60.0&lt;/td&gt;
-      &lt;td&gt;7.467050&lt;/td&gt;
-      &lt;td&gt;0.134008&lt;/td&gt;
-      &lt;td&gt;75.068108&lt;/td&gt;
-      &lt;td&gt;63.550811&lt;/td&gt;
-      &lt;td&gt;74.802415&lt;/td&gt;
+      &lt;td&gt;3.201027&lt;/td&gt;
+      &lt;td&gt;-1.595958&lt;/td&gt;
+      &lt;td&gt;64.806097&lt;/td&gt;
+      &lt;td&gt;69.612170&lt;/td&gt;
+      &lt;td&gt;66.542964&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;74&lt;/th&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+      &lt;td&gt;Grupo3&lt;/td&gt;
+      &lt;td&gt;20.0&lt;/td&gt;
+      &lt;td&gt;14.190508&lt;/td&gt;
+      &lt;td&gt;-1.483739&lt;/td&gt;
+      &lt;td&gt;46.897278&lt;/td&gt;
+      &lt;td&gt;53.997815&lt;/td&gt;
+      &lt;td&gt;48.120927&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;68&lt;/th&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+      &lt;td&gt;Grupo3&lt;/td&gt;
+      &lt;td&gt;20.0&lt;/td&gt;
+      &lt;td&gt;13.260128&lt;/td&gt;
+      &lt;td&gt;-2.222704&lt;/td&gt;
+      &lt;td&gt;44.297552&lt;/td&gt;
+      &lt;td&gt;55.319742&lt;/td&gt;
+      &lt;td&gt;46.449788&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;79&lt;/th&gt;
@@ -447,39 +537,6 @@ Name: parameter, dtype: float64
       &lt;td&gt;69.590714&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;th&gt;61&lt;/th&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-      &lt;td&gt;Grupo2&lt;/td&gt;
-      &lt;td&gt;40.0&lt;/td&gt;
-      &lt;td&gt;10.713497&lt;/td&gt;
-      &lt;td&gt;-1.796158&lt;/td&gt;
-      &lt;td&gt;59.630836&lt;/td&gt;
-      &lt;td&gt;58.938111&lt;/td&gt;
-      &lt;td&gt;61.748087&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;90&lt;/th&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-      &lt;td&gt;Grupo2&lt;/td&gt;
-      &lt;td&gt;40.0&lt;/td&gt;
-      &lt;td&gt;10.331006&lt;/td&gt;
-      &lt;td&gt;1.901065&lt;/td&gt;
-      &lt;td&gt;62.563077&lt;/td&gt;
-      &lt;td&gt;59.481571&lt;/td&gt;
-      &lt;td&gt;60.961250&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;84&lt;/th&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-      &lt;td&gt;Grupo3&lt;/td&gt;
-      &lt;td&gt;20.0&lt;/td&gt;
-      &lt;td&gt;14.728116&lt;/td&gt;
-      &lt;td&gt;4.837080&lt;/td&gt;
-      &lt;td&gt;54.293311&lt;/td&gt;
-      &lt;td&gt;53.233958&lt;/td&gt;
-      &lt;td&gt;49.086571&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;th&gt;4&lt;/th&gt;
       &lt;td&gt;2.0&lt;/td&gt;
       &lt;td&gt;Grupo2&lt;/td&gt;
@@ -491,48 +548,37 @@ Name: parameter, dtype: float64
       &lt;td&gt;57.323985&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;th&gt;53&lt;/th&gt;
+      &lt;th&gt;91&lt;/th&gt;
       &lt;td&gt;2.0&lt;/td&gt;
       &lt;td&gt;Grupo2&lt;/td&gt;
       &lt;td&gt;40.0&lt;/td&gt;
-      &lt;td&gt;2.355506&lt;/td&gt;
-      &lt;td&gt;2.055529&lt;/td&gt;
-      &lt;td&gt;46.766541&lt;/td&gt;
-      &lt;td&gt;70.813526&lt;/td&gt;
-      &lt;td&gt;44.554509&lt;/td&gt;
+      &lt;td&gt;10.183418&lt;/td&gt;
+      &lt;td&gt;-6.467369&lt;/td&gt;
+      &lt;td&gt;53.899468&lt;/td&gt;
+      &lt;td&gt;59.691271&lt;/td&gt;
+      &lt;td&gt;60.657640&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;th&gt;79&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
       &lt;td&gt;3.0&lt;/td&gt;
       &lt;td&gt;Grupo3&lt;/td&gt;
       &lt;td&gt;20.0&lt;/td&gt;
-      &lt;td&gt;16.543172&lt;/td&gt;
-      &lt;td&gt;-1.701529&lt;/td&gt;
-      &lt;td&gt;51.384815&lt;/td&gt;
-      &lt;td&gt;50.655043&lt;/td&gt;
-      &lt;td&gt;52.346756&lt;/td&gt;
+      &lt;td&gt;13.540184&lt;/td&gt;
+      &lt;td&gt;-1.365096&lt;/td&gt;
+      &lt;td&gt;45.715272&lt;/td&gt;
+      &lt;td&gt;54.921825&lt;/td&gt;
+      &lt;td&gt;46.952822&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;th&gt;10&lt;/th&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-      &lt;td&gt;Grupo2&lt;/td&gt;
-      &lt;td&gt;40.0&lt;/td&gt;
-      &lt;td&gt;12.835404&lt;/td&gt;
-      &lt;td&gt;4.634769&lt;/td&gt;
-      &lt;td&gt;70.305577&lt;/td&gt;
-      &lt;td&gt;55.923209&lt;/td&gt;
-      &lt;td&gt;66.113152&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;51&lt;/th&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-      &lt;td&gt;Grupo2&lt;/td&gt;
-      &lt;td&gt;40.0&lt;/td&gt;
-      &lt;td&gt;10.104172&lt;/td&gt;
-      &lt;td&gt;-0.556361&lt;/td&gt;
-      &lt;td&gt;59.651983&lt;/td&gt;
-      &lt;td&gt;59.803868&lt;/td&gt;
-      &lt;td&gt;60.494618&lt;/td&gt;
+      &lt;th&gt;90&lt;/th&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+      &lt;td&gt;Grupo3&lt;/td&gt;
+      &lt;td&gt;20.0&lt;/td&gt;
+      &lt;td&gt;13.247176&lt;/td&gt;
+      &lt;td&gt;-1.921617&lt;/td&gt;
+      &lt;td&gt;44.572735&lt;/td&gt;
+      &lt;td&gt;55.338144&lt;/td&gt;
+      &lt;td&gt;46.426524&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -546,7 +592,11 @@ Name: parameter, dtype: float64
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;paper_bgcolor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rgba(0,0,0,0)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;plot_bgcolor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rgba(0,0,0,0)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;plot_bgcolor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rgba(0,0,0,0)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;820&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;620&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                
                &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Grupo1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
@@ -594,13 +644,15 @@ Name: parameter, dtype: float64
 
 &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Grupo3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
                          &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Grupo3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y_reg_g'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-                         &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lines'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'rgba(255, 0, 0, 1)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lines'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;line_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'rgba(255, 0, 0, 1)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
 
 
 &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y_est'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-              
-              &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lines'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lines'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'width'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;line_color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rgb(255, 204, 0, 1)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
 
 &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_showlegend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;

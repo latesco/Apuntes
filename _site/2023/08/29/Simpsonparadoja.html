@@ -33,7 +33,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/apuntes/about/">Acerca de</a></div>
+        <div class="trigger"></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -53,100 +53,96 @@
 <div>
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true" />
 </div>
+<p><br />
+<br /></p>
 
-<p>El comportamiento de los datos en el <i>gif</i>, muestra una paradoja de asociación, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Wikipedia</a> aparece definido, en términos generales, del modo siguiente:</p>
+<p>El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Wikipedia</a> aparece definido, en términos generales, del modo siguiente:</p>
 
 <p>La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.</p>
 
 <p>Merece atención porque puede desvirtuar los resultados de algunos estudios, en los que se podría terminar asignando causas espurias a algunos efectos.</p>
 
-<p>En situaciones de investigación experimental, en las cuales la aleatorización es realmente efectiva, no es de esperar la ocurrencia de este fenómeno. En el área de las ciencias sociales, ocurre con frecuencia.</p>
+<p>En el ámbito de la investigación experimental, donde la aleatorización sea realmente efectiva, no es de esperar la ocurrencia de este fenómeno. Sin embargo, en el área de las ciencias sociales, ocurre con frecuencia.</p>
 
-<p>Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor que causa la confusión <i>(confounding)</i>, causante de la distorsión para así neutralizar el efecto indeseado.</p>
+<p>Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el factor de confusión <i>(confounding)</i>, causante de la distorsión para así neutralizar el efecto indeseado.</p>
 
 <h3 id="ejemplos">Ejemplos.</h3>
 
-<p>En el artículo de Wikipedia, mencionado arriba, dan varios ejemplos. Uno de ellos referido a promedios de bateo.</p>
+<p>En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_html</span><span class="p">(</span><span class="s">"https://en.wikipedia.org/wiki/Simpson%27s_paradox"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Renombrando las columnas de la  tabla de Wikipedia.</p>
+<p>Lo siguiente es solo para darle formato a la tabla extraida.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">columns</span> <span class="o">=</span><span class="s">"""Nombre hitsVsTurnos-1995 promed-1995 hitsVsTurnos-1996
-                promed-1996 
-                Combinado-1 Combinado-2"""</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">columns</span> <span class="o">=</span> <span class="s">"""Nombre HT-1995 P-1995 HT-1996
+                P-1996 
+                Comb-1 Comb-2"""</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">resaltar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="s">'font-weight: bold'</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.253</span><span class="p">,</span> <span class="mf">0.321</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">]</span> <span class="k">else</span> <span class="s">''</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">reset_index</span><span class="p">().</span><span class="n">style</span><span class="p">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">resaltar</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">style</span><span class="p">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">resaltar</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nb">format</span><span class="p">({</span><span class="s">'promed-1995'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">,</span> <span class="s">'promed-1996'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">,</span>
-         <span class="s">'Combinado-2'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">})</span>
-</code></pre></div></div>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span><span class="p">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'text-align'</span><span class="p">:</span> <span class="s">'center'</span><span class="p">})</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nb">format</span><span class="p">({</span><span class="s">'P-1995'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">,</span> <span class="s">'P-1996'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">,</span>
+         <span class="s">'Comb-2'</span><span class="p">:</span><span class="s">'{:.3f}'</span><span class="p">})</span>
+<span class="n">s1</span>
 </code></pre></div></div>
 
 <style type="text/css">
-#T_a7cb9_row0_col0, #T_a7cb9_row0_col1, #T_a7cb9_row0_col2, #T_a7cb9_row0_col3, #T_a7cb9_row0_col4, #T_a7cb9_row0_col5, #T_a7cb9_row0_col6, #T_a7cb9_row1_col0, #T_a7cb9_row1_col1, #T_a7cb9_row1_col2, #T_a7cb9_row1_col4, #T_a7cb9_row1_col6, #T_a7cb9_row1_col7 {
-  text-align: center;
-}
-#T_a7cb9_row0_col7, #T_a7cb9_row1_col3, #T_a7cb9_row1_col5 {
+#T_96aa7_row0_col6, #T_96aa7_row1_col2, #T_96aa7_row1_col4 {
   font-weight: bold;
-  text-align: center;
 }
 </style>
 
-<table id="T_a7cb9">
+<table id="T_96aa7">
   <thead>
     <tr>
       <th class="blank level0">&nbsp;</th>
-      <th id="T_a7cb9_level0_col0" class="col_heading level0 col0">index</th>
-      <th id="T_a7cb9_level0_col1" class="col_heading level0 col1">Nombre</th>
-      <th id="T_a7cb9_level0_col2" class="col_heading level0 col2">hitsVsTurnos-1995</th>
-      <th id="T_a7cb9_level0_col3" class="col_heading level0 col3">promed-1995</th>
-      <th id="T_a7cb9_level0_col4" class="col_heading level0 col4">hitsVsTurnos-1996</th>
-      <th id="T_a7cb9_level0_col5" class="col_heading level0 col5">promed-1996</th>
-      <th id="T_a7cb9_level0_col6" class="col_heading level0 col6">Combinado-1</th>
-      <th id="T_a7cb9_level0_col7" class="col_heading level0 col7">Combinado-2</th>
+      <th id="T_96aa7_level0_col0" class="col_heading level0 col0">Nombre</th>
+      <th id="T_96aa7_level0_col1" class="col_heading level0 col1">HT-1995</th>
+      <th id="T_96aa7_level0_col2" class="col_heading level0 col2">P-1995</th>
+      <th id="T_96aa7_level0_col3" class="col_heading level0 col3">HT-1996</th>
+      <th id="T_96aa7_level0_col4" class="col_heading level0 col4">P-1996</th>
+      <th id="T_96aa7_level0_col5" class="col_heading level0 col5">Comb-1</th>
+      <th id="T_96aa7_level0_col6" class="col_heading level0 col6">Comb-2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a7cb9_level0_row0" class="row_heading level0 row0">0</th>
-      <td id="T_a7cb9_row0_col0" class="data row0 col0">0</td>
-      <td id="T_a7cb9_row0_col1" class="data row0 col1">Derek Jeter</td>
-      <td id="T_a7cb9_row0_col2" class="data row0 col2">12/48</td>
-      <td id="T_a7cb9_row0_col3" class="data row0 col3">0.250</td>
-      <td id="T_a7cb9_row0_col4" class="data row0 col4">183/582</td>
-      <td id="T_a7cb9_row0_col5" class="data row0 col5">0.314</td>
-      <td id="T_a7cb9_row0_col6" class="data row0 col6">195/630</td>
-      <td id="T_a7cb9_row0_col7" class="data row0 col7">0.310</td>
+      <th id="T_96aa7_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_96aa7_row0_col0" class="data row0 col0">Derek Jeter</td>
+      <td id="T_96aa7_row0_col1" class="data row0 col1">12/48</td>
+      <td id="T_96aa7_row0_col2" class="data row0 col2">0.250</td>
+      <td id="T_96aa7_row0_col3" class="data row0 col3">183/582</td>
+      <td id="T_96aa7_row0_col4" class="data row0 col4">0.314</td>
+      <td id="T_96aa7_row0_col5" class="data row0 col5">195/630</td>
+      <td id="T_96aa7_row0_col6" class="data row0 col6">0.310</td>
     </tr>
     <tr>
-      <th id="T_a7cb9_level0_row1" class="row_heading level0 row1">1</th>
-      <td id="T_a7cb9_row1_col0" class="data row1 col0">1</td>
-      <td id="T_a7cb9_row1_col1" class="data row1 col1">David Justice</td>
-      <td id="T_a7cb9_row1_col2" class="data row1 col2">104/411</td>
-      <td id="T_a7cb9_row1_col3" class="data row1 col3">0.253</td>
-      <td id="T_a7cb9_row1_col4" class="data row1 col4">45/140</td>
-      <td id="T_a7cb9_row1_col5" class="data row1 col5">0.321</td>
-      <td id="T_a7cb9_row1_col6" class="data row1 col6">149/551</td>
-      <td id="T_a7cb9_row1_col7" class="data row1 col7">0.270</td>
+      <th id="T_96aa7_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_96aa7_row1_col0" class="data row1 col0">David Justice</td>
+      <td id="T_96aa7_row1_col1" class="data row1 col1">104/411</td>
+      <td id="T_96aa7_row1_col2" class="data row1 col2">0.253</td>
+      <td id="T_96aa7_row1_col3" class="data row1 col3">45/140</td>
+      <td id="T_96aa7_row1_col4" class="data row1 col4">0.321</td>
+      <td id="T_96aa7_row1_col5" class="data row1 col5">149/551</td>
+      <td id="T_96aa7_row1_col6" class="data row1 col6">0.270</td>
     </tr>
   </tbody>
 </table>
 
-<p>La columna ‘hitsVsTurnos’ presenta el cociente entre el número de <i>hits</i> y los turnos al bate; las columnas portando el nombre ‘promed’, se refieren al promedio para el año en cuestión; mientras que las columnas con el prefijo ‘Combinado’, se refieren a los valores agregados para ambos años.</p>
+<p>HT: cociente entre hits y turnos al bate, en el año</p>
+
+<p>P: promedio de bateo</p>
+
+<p>Comb: agregado de ambos años</p>
 
 <p>Se observa que, en los años 1995-1996,  <i>David Justice (ATL)</i> , tuvo mayor promedio de bateo que <i>Derek Jeter (NY)</i>; sin embargo, al combinar los promedios de las dos temporadas la relación se invierte.</p>
 
@@ -154,18 +150,76 @@
 
 <h4 id="regresión">Regresión</h4>
 
-<p><i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.</p>
+<p>El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra <a href="https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html">aquí</a>.</p>
 
-<p>En el algunos ejemplos se le utiliza para examinar la relación entre el impuesto a bebidas alcohólicas y la mortalidad en accidentes de transito.</p>
+<p>Los datos son los mísmos que se visualizan en el <i>gif</i></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">DatosFicticiosSimpson</span> <span class="k">as</span> <span class="n">ds</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="n">smf</span>
 <span class="kn">from</span> <span class="nn">linearmodels</span> <span class="kn">import</span> <span class="n">PanelOLS</span>
 </code></pre></div></div>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">ds</span><span class="p">.</span><span class="n">generAsociacion</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_marginal</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'y ~ X'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">).</span><span class="n">fit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_marginal</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    6.670389
+X            1.832375
+dtype: float64
+</code></pre></div></div>
+
+<p>La relación entre X e y es positiva, a la luz del resultado.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_marginal</span><span class="p">.</span><span class="n">pvalues</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    7.510754e-09
+X            7.490094e-49
+dtype: float64
+</code></pre></div></div>
+
+<p>Condicionando por los grupos.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_condic</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'y ~ X + Grupos - 1'</span><span class="p">,</span>  <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">).</span><span class="n">fit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_condic</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Grupos[Grupo1]    20.327267
+Grupos[Grupo2]    40.889122
+Grupos[Grupo3]    60.513787
+X                 -1.560381
+dtype: float64
+</code></pre></div></div>
+
+<p>Vemos que la asociación se invierte.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_condic</span><span class="p">.</span><span class="n">pvalues</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Grupos[Grupo1]    2.643887e-112
+Grupos[Grupo2]    6.305009e-129
+Grupos[Grupo3]    1.357479e-132
+X                  1.000014e-46
+dtype: float64
+</code></pre></div></div>
+
+<p>Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.</p>
+
+<p><i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.</p>
+
 <p>Con el modulo <i>statsmodels</i>, es posible obtener casi cualquier <i>dataset</i> de R.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fatal</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">datasets</span><span class="p">.</span><span class="n">get_rdataset</span><span class="p">(</span><span class="s">'Fatalities'</span><span class="p">,</span><span class="s">"AER"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="p">.</span><span class="n">set_option</span><span class="p">(</span><span class="s">"display.max_columns"</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fatal</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -193,19 +247,7 @@
       <th>year</th>
       <th>spirits</th>
       <th>unemp</th>
-      <th>income</th>
-      <th>emppop</th>
-      <th>beertax</th>
-      <th>baptist</th>
-      <th>mormon</th>
-      <th>drinkage</th>
       <th>...</th>
-      <th>nfatal2124</th>
-      <th>afatal</th>
-      <th>pop</th>
-      <th>pop1517</th>
-      <th>pop1820</th>
-      <th>pop2124</th>
       <th>milestot</th>
       <th>unempus</th>
       <th>emppopus</th>
@@ -219,23 +261,11 @@
       <td>1982</td>
       <td>1.37</td>
       <td>14.4</td>
-      <td>10544.152</td>
-      <td>50.692</td>
-      <td>1.539</td>
-      <td>30.356</td>
-      <td>0.328</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>32</td>
-      <td>309.438</td>
-      <td>3.942e+06</td>
-      <td>208999.594</td>
-      <td>221553.438</td>
-      <td>290000.062</td>
       <td>28516.0</td>
       <td>9.7</td>
-      <td>57.8</td>
-      <td>-0.022</td>
+      <td>57.799999</td>
+      <td>-0.022125</td>
     </tr>
     <tr>
       <th>1</th>
@@ -243,23 +273,11 @@
       <td>1983</td>
       <td>1.36</td>
       <td>13.7</td>
-      <td>10732.798</td>
-      <td>52.147</td>
-      <td>1.789</td>
-      <td>30.334</td>
-      <td>0.343</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>35</td>
-      <td>341.834</td>
-      <td>3.960e+06</td>
-      <td>202000.078</td>
-      <td>219125.469</td>
-      <td>290000.156</td>
       <td>31032.0</td>
       <td>9.6</td>
-      <td>57.9</td>
-      <td>0.047</td>
+      <td>57.900002</td>
+      <td>0.046558</td>
     </tr>
     <tr>
       <th>2</th>
@@ -267,23 +285,11 @@
       <td>1984</td>
       <td>1.32</td>
       <td>11.1</td>
-      <td>11108.791</td>
-      <td>54.168</td>
-      <td>1.714</td>
-      <td>30.312</td>
-      <td>0.359</td>
-      <td>19.0</td>
       <td>...</td>
-      <td>34</td>
-      <td>304.872</td>
-      <td>3.989e+06</td>
-      <td>196999.969</td>
-      <td>216724.094</td>
-      <td>288000.156</td>
       <td>32961.0</td>
       <td>7.5</td>
-      <td>59.5</td>
-      <td>0.063</td>
+      <td>59.500004</td>
+      <td>0.062798</td>
     </tr>
   </tbody>
 </table>
@@ -293,51 +299,91 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">fatal</span><span class="p">.</span><span class="n">data</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'mortalidad'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">fatal</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'pop'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'mortalidad'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'fatal'</span><span class="p">]</span> <span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'pop'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10000</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Si se observa la relación marginal entre el impuesto y la incidencia de accidentes fatales.</p>
+<p>Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'mortalidad ~ beertax'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">).</span><span class="n">fit</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1982</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'mortalidad ~ beertax'</span><span class="p">,</span>
+               <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">1982</span><span class="p">)]).</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">res_1985</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'mortalidad ~ beertax'</span><span class="p">,</span>
+               <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">1985</span><span class="p">)]).</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">res_1988</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'mortalidad ~ beertax'</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">1988</span><span class="p">)]).</span><span class="n">fit</span><span class="p">()</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res</span><span class="p">.</span><span class="n">params</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1982</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.853e-07
-beertax      3.646e-08
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    2.010381e-08
+beertax      1.484604e-09
 dtype: float64
 </code></pre></div></div>
 
-<p>Obtenémos un resultado, según el cual, esa relación es positiva; es decir, a medida que se incrementa el impuesto, también se incrementan los accidentes fatales. Contrario a lo que se podría anticipar.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1985</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.771162e-08
+beertax      3.917555e-09
+dtype: float64
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1988</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.859073e-08
+beertax      4.387546e-09
+dtype: float64
+</code></pre></div></div>
+
+<p>Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beerttax</i>). Una variable incrementa con la otra; contrario a lo que se podría anticipar.</p>
 
 <p>Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">'state'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">])</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datos</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">'state'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">])</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod</span> <span class="o">=</span> <span class="n">PanelOLS</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">mortalidad</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'beertax'</span><span class="p">],</span> <span class="n">entity_effects</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod</span> <span class="o">=</span> <span class="n">PanelOLS</span><span class="p">(</span><span class="n">datos</span><span class="p">.</span><span class="n">mortalidad</span><span class="p">,</span> <span class="n">datos</span><span class="p">[</span><span class="s">'beertax'</span><span class="p">],</span> <span class="n">entity_effects</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s">'clustered'</span><span class="p">,</span> <span class="n">cluster_entity</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_grupos</span> <span class="o">=</span> <span class="n">mod</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cov_type</span><span class="o">=</span><span class="s">'clustered'</span><span class="p">,</span> <span class="n">cluster_entity</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res</span><span class="p">.</span><span class="n">params</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_grupos</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>beertax   -6.559e-08
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>beertax   -6.558737e-09
 Name: parameter, dtype: float64
 </code></pre></div></div>
 
-<p>La relación se invierte; siendo coeficientes significativos al 95%.</p>
+<p>La relación se invierte, el coeficiente cambia de signo.</p>
 
-<p>En estos casos puntuales quiza resulte sencillo dilucidar cuál es la fuente de distorsión y cuál es la asociación correcta.</p>
+<p>Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.</p>
 
-<p>El asunto es que no siempre existe claridad en lo referente a cuando es es la asociación marginal o la condicional, la que debe considerarse espuria. Existen ejemplos, para uno y otro caso, al parecer suele ser más frecuente considerar como espuria a la marginal.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_grupos</span><span class="p">.</span><span class="n">pvalues</span>
+</code></pre></div></div>
 
-<p>De hecho, si se encontrará que el comportamiento de las variables en la muestra refleja fielmente el de la población de la que fueron extraidas, tendría que concluirse que ambas asociaciones, tanto la marginal como la condicional, son correctas.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>beertax    0.023885
+Name: pvalue, dtype: float64
+</code></pre></div></div>
 
-<p>En muchos casos es la información contextual disponible, acerca del asunto que se estudia, lo que ofrece una orientación para tomar una decisión al respecto.</p>
+<p>En los años 85, 88 es siginificativo al 90%.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">res_1982</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1985</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1988</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="s">' '</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.4346579944707294 0.014789150230907022 0.010503110467017232 
+</code></pre></div></div>
+
+<p>Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.</p>
+
+<p>El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.</p>
+
+<p>Incluso, si en un algún caso pudiera determinarse con certeza que un comportamiento como este a nivel muestral, refleja fielmente al de la población; seguramente habría que concluir que que ambas asociaciones, la marginal y la condicional, son correctas.</p>
+
+<p>Al parecer, en muchos casos es la información contextual disponible acerca del asunto que se estudia, lo que ofrece alguna orientación para decidir al respecto.</p>
 
   </div><a class="u-url" href="/apuntes/2023/08/29/Simpsonparadoja.html" hidden></a>
 </article>
