@@ -10,10 +10,9 @@ date:   2023-08-29 08:45:15 -0400
 <div>
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true" />
 </div>
-<br>
-<br>
 
-El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en [Wikipedia](https://en.wikipedia.org/wiki/Simpson%27s_paradox) aparece definido, en términos generales, del modo siguiente:
+
+El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en [Wikipedia](https://es.wikipedia.org/wiki/Paradoja_de_Simpson) aparece definido, en términos generales, del modo siguiente:
 
 La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.
 
@@ -25,7 +24,7 @@ Los remedios comunes consisten en encontrar un modo de tratar adecuadamente el f
 
 ### Ejemplos.
 
-En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.
+En el artículo de Wikipedia acerca de este asunto (versión en inglés), entre varios ejemplos mencionan los promedios de bateo.
 
 
 ```python
@@ -127,11 +126,12 @@ La ocurrencia, en este contexto, se debe a la diferencia considerable de turnos 
 
 El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra [aquí](https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html).
 
-Los datos son los mísmos que se visualizan en el <i>gif</i>
+Los datos son los mísmos que se ven en el gráfico del <i>gif</i> arriba.
 
 
 ```python
 import DatosFicticiosSimpson as ds
+import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from linearmodels import PanelOLS
 ```
@@ -199,7 +199,7 @@ mod_condic.params
 
 
 
-Vemos que la asociación se invierte.
+Vemos que la asociación se invierte; lo cual resulta previsible al observar el gráfico; adémas son datos ficticios generados deliberadamente para que emulen  ese comportamiento.
 
 
 ```python
@@ -217,7 +217,7 @@ mod_condic.pvalues
 
 
 
-Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.
+Un ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.
 
 <i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.
 
@@ -321,7 +321,7 @@ df = fatal.data
 
 
 ```python
-df['mortalidad'] = df['fatal'] /(df['pop'] * 10000)
+df['mortalidad'] = df['fatal'] / df['pop'] * 10000
 ```
 
 Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.
@@ -346,8 +346,8 @@ res_1982.params
 
 
 
-    Intercept    2.010381e-08
-    beertax      1.484604e-09
+    Intercept    2.010381
+    beertax      0.148460
     dtype: float64
 
 
@@ -360,8 +360,8 @@ res_1985.params
 
 
 
-    Intercept    1.771162e-08
-    beertax      3.917555e-09
+    Intercept    1.771162
+    beertax      0.391755
     dtype: float64
 
 
@@ -374,15 +374,34 @@ res_1988.params
 
 
 
-    Intercept    1.859073e-08
-    beertax      4.387546e-09
+    Intercept    1.859073
+    beertax      0.438755
     dtype: float64
 
 
 
-Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beerttax</i>). Una variable incrementa con la otra; contrario a lo que se podría anticipar. 
+Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beertax</i>), dentro de cada subconjunto de datos anuales: la mortalidad se incrementa junto con el impuesto; contrario a lo que el sentido común podría anticipar. 
 
-Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.
+Incluso la regresión con todo el conjunto de datos
+
+
+```python
+res_glob = smf.ols('mortalidad ~ beertax', data = df).fit()
+```
+
+
+```python
+print(res_glob.params)
+```
+
+    Intercept    1.853308
+    beertax      0.364605
+    dtype: float64
+
+
+Arroja un resultado que apunta a una relación positiva entre la mortalidad en accidentes y el impuesto a la bebidas alcohólicas.
+
+Sin embargo, utilizando un modelo de efectos fijos, es decir, condicionando por estado y tiempo.
 
 
 ```python
@@ -407,14 +426,16 @@ res_grupos.params
 
 
 
-    beertax   -6.558737e-09
+    beertax   -0.655874
     Name: parameter, dtype: float64
 
 
 
-La relación se invierte, el coeficiente cambia de signo.
+El coeficiente cambia de signo: la relación se invierte.
 
-Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.
+Al incluir el factor tiempo y las posibles diferencias existentes entre estados, la situación cambia, y parece indicar que, a la larga, la relación entre el impuesto y la mortalidad en accidentes de transito tiene sentidos opuestos.
+
+El coeficiente es significativo al 95%.
 
 
 ```python
@@ -429,16 +450,16 @@ res_grupos.pvalues
 
 
 
-En los años 85, 88 es siginificativo al 90%. 
+Estos son los p-valores, en los subconjuntos, 82, 85, 88 y con el conjunto completo.
 
 
 ```python
-print(res_1982.pvalues[1], res_1985.pvalues[1], res_1988.pvalues[1], end = ' ')
+print(res_1982.pvalues[1], res_1985.pvalues[1], res_1988.pvalues[1], res_glob.pvalues[1], end = ' ')
 ```
 
-    0.4346579944707294 0.014789150230907022 0.010503110467017232 
+    0.43465799447072817 0.014789150230907159 0.0105031104670172 1.0821720591364002e-08 
 
-Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.
+Por supuesto que no estamos pretendiendo indicar cuál especificación sería apropiada en un modelo para estos datos, un modelo adecuado, seguramente incluiría otras variables; la mención surge solo como ejemplo de dos variables cuya relación se invierte, al condicionar por grupos.
 
 El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.
 

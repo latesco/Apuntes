@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-09-01T09:03:11-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Paradoja de Simpson</title><link href="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html" rel="alternate" type="text/html" title="Paradoja de Simpson" /><published>2023-08-29T08:45:15-04:00</published><updated>2023-08-29T08:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html">&lt;h2 id=&quot;paradoja-de-asociación&quot;&gt;&lt;i&gt;Paradoja de Asociación&lt;/i&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/apuntes/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/apuntes/" rel="alternate" type="text/html" /><updated>2023-09-02T11:57:26-04:00</updated><id>http://localhost:4000/apuntes/feed.xml</id><title type="html">Apuntes</title><subtitle>Códigos de Python.</subtitle><entry><title type="html">Paradoja de Simpson</title><link href="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html" rel="alternate" type="text/html" title="Paradoja de Simpson" /><published>2023-08-29T08:45:15-04:00</published><updated>2023-08-29T08:45:15-04:00</updated><id>http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja</id><content type="html" xml:base="http://localhost:4000/apuntes/2023/08/29/Simpsonparadoja.html">&lt;h2 id=&quot;paradoja-de-asociación&quot;&gt;&lt;i&gt;Paradoja de Asociación&lt;/i&gt;&lt;/h2&gt;
 
 &lt;div&gt;
   &lt;img src=&quot;https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;El comportamiento de los datos en el &lt;i&gt;gif&lt;/i&gt;, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como &lt;i&gt;Paradoja de Simpson&lt;/i&gt;, y en &lt;a href=&quot;https://en.wikipedia.org/wiki/Simpson%27s_paradox&quot;&gt;Wikipedia&lt;/a&gt; aparece definido, en términos generales, del modo siguiente:&lt;/p&gt;
+&lt;p&gt;El comportamiento de los datos en el &lt;i&gt;gif&lt;/i&gt;, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como &lt;i&gt;Paradoja de Simpson&lt;/i&gt;, y en &lt;a href=&quot;https://es.wikipedia.org/wiki/Paradoja_de_Simpson&quot;&gt;Wikipedia&lt;/a&gt; aparece definido, en términos generales, del modo siguiente:&lt;/p&gt;
 
 &lt;p&gt;La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.&lt;/p&gt;
 
@@ -18,7 +16,7 @@
 
 &lt;h3 id=&quot;ejemplos&quot;&gt;Ejemplos.&lt;/h3&gt;
 
-&lt;p&gt;En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.&lt;/p&gt;
+&lt;p&gt;En el artículo de Wikipedia acerca de este asunto (versión en inglés), entre varios ejemplos mencionan los promedios de bateo.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -102,9 +100,10 @@
 
 &lt;p&gt;El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra &lt;a href=&quot;https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Los datos son los mísmos que se visualizan en el &lt;i&gt;gif&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;Los datos son los mísmos que se ven en el gráfico del &lt;i&gt;gif&lt;/i&gt; arriba.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;DatosFicticiosSimpson&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ds&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;statsmodels.api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;statsmodels.formula.api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;linearmodels&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PanelOLS&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -148,7 +147,7 @@ X                 -1.560381
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Vemos que la asociación se invierte.&lt;/p&gt;
+&lt;p&gt;Vemos que la asociación se invierte; lo cual resulta previsible al observar el gráfico; adémas son datos ficticios generados deliberadamente para que emulen  ese comportamiento.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mod_condic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -160,7 +159,7 @@ X                  1.000014e-46
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos &lt;i&gt;Fatalities&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;Un ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos &lt;i&gt;Fatalities&lt;/i&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;i&gt;Fatalities&lt;/i&gt;, es un conjunto de datos contenido en el paquete &lt;i&gt;AER&lt;/i&gt; del &lt;i&gt;software R&lt;/i&gt;. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.&lt;/p&gt;
 
@@ -249,7 +248,7 @@ dtype: float64
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fatal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'fatal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'fatal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.&lt;/p&gt;
@@ -267,30 +266,45 @@ dtype: float64
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    2.010381e-08
-beertax      1.484604e-09
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    2.010381
+beertax      0.148460
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.771162e-08
-beertax      3.917555e-09
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.771162
+beertax      0.391755
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.859073e-08
-beertax      4.387546e-09
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.859073
+beertax      0.438755
 dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de &lt;i&gt;beerttax&lt;/i&gt;). Una variable incrementa con la otra; contrario a lo que se podría anticipar.&lt;/p&gt;
+&lt;p&gt;Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de &lt;i&gt;beertax&lt;/i&gt;), dentro de cada subconjunto de datos anuales: la mortalidad se incrementa junto con el impuesto; contrario a lo que el sentido común podría anticipar.&lt;/p&gt;
 
-&lt;p&gt;Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.&lt;/p&gt;
+&lt;p&gt;Incluso la regresión con todo el conjunto de datos&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_glob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mortalidad ~ beertax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res_glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Intercept    1.853308
+beertax      0.364605
+dtype: float64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Arroja un resultado que apunta a una relación positiva entre la mortalidad en accidentes y el impuesto a la bebidas alcohólicas.&lt;/p&gt;
+
+&lt;p&gt;Sin embargo, utilizando un modelo de efectos fijos, es decir, condicionando por estado y tiempo.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;datos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'state'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'year'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -304,13 +318,15 @@ dtype: float64
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_grupos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beertax   -6.558737e-09
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;beertax   -0.655874
 Name: parameter, dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;La relación se invierte, el coeficiente cambia de signo.&lt;/p&gt;
+&lt;p&gt;El coeficiente cambia de signo: la relación se invierte.&lt;/p&gt;
 
-&lt;p&gt;Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.&lt;/p&gt;
+&lt;p&gt;Al incluir el factor tiempo y las posibles diferencias existentes entre estados, la situación cambia, y parece indicar que, a la larga, la relación entre el impuesto y la mortalidad en accidentes de transito tiene sentidos opuestos.&lt;/p&gt;
+
+&lt;p&gt;El coeficiente es significativo al 95%.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;res_grupos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -319,15 +335,15 @@ Name: parameter, dtype: float64
 Name: pvalue, dtype: float64
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;En los años 85, 88 es siginificativo al 90%.&lt;/p&gt;
+&lt;p&gt;Estos son los p-valores, en los subconjuntos, 82, 85, 88 y con el conjunto completo.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res_1982&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1985&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_1988&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res_glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.4346579944707294 0.014789150230907022 0.010503110467017232 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.43465799447072817 0.014789150230907159 0.0105031104670172 1.0821720591364002e-08 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.&lt;/p&gt;
+&lt;p&gt;Por supuesto que no estamos pretendiendo indicar cuál especificación sería apropiada en un modelo para estos datos, un modelo adecuado, seguramente incluiría otras variables; la mención surge solo como ejemplo de dos variables cuya relación se invierte, al condicionar por grupos.&lt;/p&gt;
 
 &lt;p&gt;El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.&lt;/p&gt;
 

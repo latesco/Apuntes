@@ -53,10 +53,8 @@
 <div>
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true" />
 </div>
-<p><br />
-<br /></p>
 
-<p>El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Wikipedia</a> aparece definido, en términos generales, del modo siguiente:</p>
+<p>El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en <a href="https://es.wikipedia.org/wiki/Paradoja_de_Simpson">Wikipedia</a> aparece definido, en términos generales, del modo siguiente:</p>
 
 <p>La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.</p>
 
@@ -68,7 +66,7 @@
 
 <h3 id="ejemplos">Ejemplos.</h3>
 
-<p>En el mismo artículo de Wikipedia, mencionan varios ejemplos. Uno de ellos referido a promedios de bateo.</p>
+<p>En el artículo de Wikipedia acerca de este asunto (versión en inglés), entre varios ejemplos mencionan los promedios de bateo.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 </code></pre></div></div>
@@ -152,9 +150,10 @@
 
 <p>El siguiente ejemplo utiliza datos ficticios generados por una función, cuyo código se encuentra <a href="https://latesco.github.io/apuntes/2023/08/15/DatosFicticiosSimpson.html">aquí</a>.</p>
 
-<p>Los datos son los mísmos que se visualizan en el <i>gif</i></p>
+<p>Los datos son los mísmos que se ven en el gráfico del <i>gif</i> arriba.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">DatosFicticiosSimpson</span> <span class="k">as</span> <span class="n">ds</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
 <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="n">smf</span>
 <span class="kn">from</span> <span class="nn">linearmodels</span> <span class="kn">import</span> <span class="n">PanelOLS</span>
 </code></pre></div></div>
@@ -198,7 +197,7 @@ X                 -1.560381
 dtype: float64
 </code></pre></div></div>
 
-<p>Vemos que la asociación se invierte.</p>
+<p>Vemos que la asociación se invierte; lo cual resulta previsible al observar el gráfico; adémas son datos ficticios generados deliberadamente para que emulen  ese comportamiento.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mod_condic</span><span class="p">.</span><span class="n">pvalues</span>
 </code></pre></div></div>
@@ -210,7 +209,7 @@ X                  1.000014e-46
 dtype: float64
 </code></pre></div></div>
 
-<p>Otro ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.</p>
+<p>Un ejemplo, con datos no ficticios, es el que se observa entre las variables tasa de accidentes fatales y el impuesto a las bebidas alcohólicas, del conjunto de datos <i>Fatalities</i>.</p>
 
 <p><i>Fatalities</i>, es un conjunto de datos contenido en el paquete <i>AER</i> del <i>software R</i>. Allí se reporta la mortalidad en accidentes de transito en los EEUU, durante los años 1982-1988.</p>
 
@@ -299,7 +298,7 @@ dtype: float64
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">fatal</span><span class="p">.</span><span class="n">data</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'mortalidad'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'fatal'</span><span class="p">]</span> <span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'pop'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10000</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">'mortalidad'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'fatal'</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s">'pop'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10000</span>
 </code></pre></div></div>
 
 <p>Al observar la relación marginal entre el impuesto y la incidencia de accidentes fatales, dentro de los grupos.</p>
@@ -317,30 +316,45 @@ dtype: float64
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1982</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    2.010381e-08
-beertax      1.484604e-09
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    2.010381
+beertax      0.148460
 dtype: float64
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1985</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.771162e-08
-beertax      3.917555e-09
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.771162
+beertax      0.391755
 dtype: float64
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_1988</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.859073e-08
-beertax      4.387546e-09
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.859073
+beertax      0.438755
 dtype: float64
 </code></pre></div></div>
 
-<p>Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beerttax</i>). Una variable incrementa con la otra; contrario a lo que se podría anticipar.</p>
+<p>Obtenémos un resultado, según el cual, la relación es positiva (coeficientes de <i>beertax</i>), dentro de cada subconjunto de datos anuales: la mortalidad se incrementa junto con el impuesto; contrario a lo que el sentido común podría anticipar.</p>
 
-<p>Sin embargo, utilizando un modelo de efectos fijos, es decir observando la asociación condicionada por las diferencias entre estado y tiempo.</p>
+<p>Incluso la regresión con todo el conjunto de datos</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_glob</span> <span class="o">=</span> <span class="n">smf</span><span class="p">.</span><span class="n">ols</span><span class="p">(</span><span class="s">'mortalidad ~ beertax'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">).</span><span class="n">fit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">res_glob</span><span class="p">.</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intercept    1.853308
+beertax      0.364605
+dtype: float64
+</code></pre></div></div>
+
+<p>Arroja un resultado que apunta a una relación positiva entre la mortalidad en accidentes y el impuesto a la bebidas alcohólicas.</p>
+
+<p>Sin embargo, utilizando un modelo de efectos fijos, es decir, condicionando por estado y tiempo.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">datos</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">'state'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">])</span>
 </code></pre></div></div>
@@ -354,13 +368,15 @@ dtype: float64
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_grupos</span><span class="p">.</span><span class="n">params</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>beertax   -6.558737e-09
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>beertax   -0.655874
 Name: parameter, dtype: float64
 </code></pre></div></div>
 
-<p>La relación se invierte, el coeficiente cambia de signo.</p>
+<p>El coeficiente cambia de signo: la relación se invierte.</p>
 
-<p>Los coeficientes son bastante pequeños, aún asi, el coeficiente de impuesto a las bebidas alcohólicas en el modelo condicionado por grupos es significativo al 95%.</p>
+<p>Al incluir el factor tiempo y las posibles diferencias existentes entre estados, la situación cambia, y parece indicar que, a la larga, la relación entre el impuesto y la mortalidad en accidentes de transito tiene sentidos opuestos.</p>
+
+<p>El coeficiente es significativo al 95%.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">res_grupos</span><span class="p">.</span><span class="n">pvalues</span>
 </code></pre></div></div>
@@ -369,15 +385,15 @@ Name: parameter, dtype: float64
 Name: pvalue, dtype: float64
 </code></pre></div></div>
 
-<p>En los años 85, 88 es siginificativo al 90%.</p>
+<p>Estos son los p-valores, en los subconjuntos, 82, 85, 88 y con el conjunto completo.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">res_1982</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1985</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1988</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="s">' '</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">res_1982</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1985</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_1988</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">res_glob</span><span class="p">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span> <span class="o">=</span> <span class="s">' '</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.4346579944707294 0.014789150230907022 0.010503110467017232 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.43465799447072817 0.014789150230907159 0.0105031104670172 1.0821720591364002e-08 
 </code></pre></div></div>
 
-<p>Por supuesto que no estamos pretendiendo indicar cuál especificación sería adecuada en un modelo para estos datos; la mención surge solo como ejemplo de una asociación que se revierte al condicionar por grupos.</p>
+<p>Por supuesto que no estamos pretendiendo indicar cuál especificación sería apropiada en un modelo para estos datos, un modelo adecuado, seguramente incluiría otras variables; la mención surge solo como ejemplo de dos variables cuya relación se invierte, al condicionar por grupos.</p>
 
 <p>El asunto es que no siempre existe claridad sobre cuál asociación debe considerarse espuria; la marginal o la condicional. Existen ejemplos, para uno y otro caso, aunque al parecer suele ser más frecuente considerar espuria a la relación marginal.</p>
 
