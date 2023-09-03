@@ -11,7 +11,7 @@ date:   2023-08-29 08:45:15 -0400
   <img src="https://github.com/latesco/apuntes/blob/gh-pages/_posts/2023/08/29/assets/plotly_output.gif?raw=true" />
 </div>
 
-
+<br>
 El comportamiento de los datos en el <i>gif</i>, luce contradictorio, la tendencia general de los datos va en una dirección , mientras la tendencia por grupos es contraria. Usualmente se le conoce como <i>Paradoja de Simpson</i>, y en [Wikipedia](https://es.wikipedia.org/wiki/Paradoja_de_Simpson) aparece definido, en términos generales, del modo siguiente:
 
 La paradoja de Simpson, es un fenómeno en el cual una tendencia aparece en varios grupos de datos; pero desaparece cuando estos grupos se combinan.
