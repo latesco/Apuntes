@@ -37,7 +37,7 @@ La instalación de estos paquetes o modulos, se puede obtener mediante <i>pip</i
 
 
 ```python
-base = "mysql+pymysql://usuario:pswd@127.0.0.1:3306/beisbol"
+base = open('claveDB', 'r').readline().strip()
 
 # Donde:
 # usuario: usuario o cliente MariDB
